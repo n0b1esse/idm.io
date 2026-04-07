@@ -36,7 +36,7 @@
   --space-3xl: 4rem;
   --container-padding: var(--space-md);
   --container-max: 72rem;
-  --header-height: 3.75rem;
+  --header-height: 5.75rem;
 
   /* Прочее */
   --radius-sm: 0.375rem;
@@ -230,9 +230,9 @@ h2 {
 
 .logo__img {
   display: block;
-  height: 2.75rem;
+  height: 5rem;
   width: auto;
-  max-width: 10rem;
+  max-width: 20rem;
   object-fit: contain;
 }
 
@@ -241,8 +241,8 @@ h2 {
 }
 
 .logo--footer .logo__img {
-  height: 3.25rem;
-  max-width: 12rem;
+  height: 6.25rem;
+  max-width: 26rem;
 }
 
 /* Burger — mobile first: виден по умолчанию */
@@ -1066,7 +1066,7 @@ body.nav-open {
 @media (min-width: 768px) {
   :root {
     --container-padding: var(--space-xl);
-    --header-height: 4rem;
+    --header-height: 6.25rem;
   }
 
   .burger {

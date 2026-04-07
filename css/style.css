@@ -228,6 +228,23 @@ h2 {
   display: block;
 }
 
+.logo__img {
+  display: block;
+  height: 2.75rem;
+  width: auto;
+  max-width: 10rem;
+  object-fit: contain;
+}
+
+.logo:hover .logo__img {
+  opacity: 0.88;
+}
+
+.logo--footer .logo__img {
+  height: 3.25rem;
+  max-width: 12rem;
+}
+
 /* Burger — mobile first: виден по умолчанию */
 .burger {
   --burger-line-height: 2px;
@@ -1042,9 +1059,6 @@ body.nav-open {
   color: var(--color-text-muted);
 }
 
-.logo--footer .logo__text {
-  font-size: var(--font-size-lg);
-}
 
 /* =============================================================================
    Tablet and up: 768px

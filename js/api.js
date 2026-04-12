@@ -203,8 +203,8 @@
       title: "Нур Телеком (О!)",
       excerpt: "Телеком: digital-кампании и коммуникации для оператора связи.",
       link: "#",
-      image:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+      image: "",
+      result: "📈 +320% охватов за 3 мес.",
       category: "target",
       tagLabel: "Таргет",
     },
@@ -212,8 +212,8 @@
       title: "О!Банк",
       excerpt: "Банки: performance и медийное сопровождение.",
       link: "#",
-      image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      image: "",
+      result: "📈 CPL −28% к плану",
       category: "target",
       tagLabel: "Таргет",
     },
@@ -221,8 +221,8 @@
       title: "Компаньон Банк",
       excerpt: "Банки: стратегия присутствия в digital-каналах.",
       link: "#",
-      image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80",
+      image: "",
+      result: "📈 +180% органики",
       category: "seo",
       tagLabel: "SEO",
     },
@@ -230,8 +230,8 @@
       title: "Демир Банк",
       excerpt: "Банки: комплексное продвижение и креативы.",
       link: "#",
-      image:
-        "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80",
+      image: "",
+      result: "📈 ROMI 240%",
       category: "seo",
       tagLabel: "SEO",
     },
@@ -239,35 +239,35 @@
       title: "Тойбосс (Адал Азык)",
       excerpt: "Ритейл: охваты и продажи для сети.",
       link: "#",
-      image:
-        "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&q=80",
-      category: "target",
-      tagLabel: "Таргет",
+      image: "",
+      result: "📈 +95% заявок",
+      category: "smm",
+      tagLabel: "SMM",
     },
     {
       title: "Абдыш-Ата",
       excerpt: "Ритейл: бренд и digital-коммуникации.",
       link: "#",
-      image:
-        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80",
-      category: "seo",
-      tagLabel: "SEO",
+      image: "",
+      result: "📈 ER +42%",
+      category: "content",
+      tagLabel: "Контент",
     },
     {
       title: "Синематика",
       excerpt: "Ритейл: продвижение в digital.",
       link: "#",
-      image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
-      category: "target",
-      tagLabel: "Таргет",
+      image: "",
+      result: "📈 узнаваемость +60%",
+      category: "design",
+      tagLabel: "Дизайн",
     },
     {
       title: "Toyota Центр (Автоперекресток)",
       excerpt: "Авто: digital-стратегия для дилерского центра.",
       link: "#",
-      image:
-        "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80",
+      image: "",
+      result: "📈 лиды +110%",
       category: "target",
       tagLabel: "Таргет",
     },
@@ -431,27 +431,37 @@
       return;
     }
     var html = cases
-      .map(function (c) {
+      .map(function (c, idx) {
         var title = escapeHtml(c.title);
         var excerpt = escapeHtml(c.excerpt);
-        var img = escapeHtml(c.image);
+        var img = c.image ? escapeHtml(c.image) : "";
         var link = escapeHtml(c.link);
         var cat = escapeHtml(c.category);
         var tag = escapeHtml(c.tagLabel);
         var alt = escapeHtml("Кейс: " + stripTags(c.title));
+        var result = escapeHtml(c.result || "📈 Рост по проекту — см. детали");
+        var hiddenClass = idx >= 6 ? " is-hidden-load" : "";
+        var mediaInner = img
+          ? '<img class="case-card__img" src="' +
+            img +
+            '" width="800" height="450" alt="' +
+            alt +
+            '" loading="lazy">'
+          : "";
         return (
-          '<article class="case-card portfolio-card" data-category="' +
+          '<article class="case-card portfolio-card card' +
+          hiddenClass +
+          '" data-category="' +
           cat +
           '">' +
           '<a class="case-card__link" href="' +
           link +
           '">' +
-          '<div class="case-card__media">' +
-          '<img class="case-card__img" src="' +
-          img +
-          '" width="800" height="600" alt="' +
-          alt +
-          '" loading="lazy">' +
+          '<div class="case-card__media case-card__media--ratio">' +
+          mediaInner +
+          (!img
+            ? '<div class="case-card__cover case-card__cover--empty" aria-hidden="true"></div>'
+            : "") +
           '<div class="case-card__overlay">' +
           '<p class="case-card__excerpt">' +
           excerpt +
@@ -459,13 +469,17 @@
           '<span class="case-card__more">Подробнее</span>' +
           "</div>" +
           "</div>" +
+          '<span class="case-card__badge">' +
+          tag +
+          "</span>" +
           '<h3 class="case-card__title">' +
           title +
           "</h3>" +
-          "</a>" +
-          '<p class="portfolio-card__tag">' +
-          tag +
+          '<p class="case-card__result">' +
+          result +
           "</p>" +
+          '<span class="case-card__read">Читать кейс →</span>' +
+          "</a>" +
           "</article>"
         );
       })
@@ -488,7 +502,8 @@
       .map(function (r) {
         return (
           "<li>" +
-          '<blockquote class="review-card">' +
+          '<article class="card review-grid-card">' +
+          '<p class="stars" aria-hidden="true">★★★★★</p>' +
           '<p class="review-card__text">' +
           escapeHtml(r.text) +
           "</p>" +
@@ -500,7 +515,8 @@
           escapeHtml(r.role) +
           "</span>" +
           "</footer>" +
-          "</blockquote>" +
+          '<p class="review-grid-card__source">Google / 2GIS</p>' +
+          "</article>" +
           "</li>"
         );
       })
@@ -512,6 +528,28 @@
    * @param {object[]} posts
    * @returns {object[]}
    */
+  function normalizeCaseCategory(slug) {
+    var s = String(slug || "")
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+    if (s === "target" || s.indexOf("таргет") !== -1) {
+      return "target";
+    }
+    if (s === "smm" || s === "social") {
+      return "smm";
+    }
+    if (s === "content" || s === "kontent") {
+      return "content";
+    }
+    if (s === "design" || s === "dizajn") {
+      return "design";
+    }
+    if (s === "seo") {
+      return "seo";
+    }
+    return "seo";
+  }
+
   function normalizeCasePosts(posts) {
     return posts.map(function (post) {
       var title = stripTags((post.title && post.title.rendered) || "");
@@ -525,16 +563,16 @@
       var link = post.link || "#";
       var image = getFeaturedImageUrl(post);
       if (!image) {
-        image =
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80";
+        image = "";
       }
       return {
         title: title,
         excerpt: excerpt || "Кейс",
         link: link,
         image: image,
-        category: slug === "target" ? "target" : "seo",
+        category: normalizeCaseCategory(slug),
         tagLabel: tagLabel,
+        result: "📈 Результаты по проекту",
       };
     });
   }

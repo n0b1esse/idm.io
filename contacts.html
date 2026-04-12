@@ -3,14 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="IDM — отзывы клиентов, благодарности, сертификаты.">
-  <title>Отзывы — IDM</title>
+  <meta name="description" content="Контакты IDM — Бишкек, телефон, email, мессенджеры.">
+  <title>Контакты — IDM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <script type="application/ld+json">
-  {"@context": "https://schema.org", "@graph": [{"@type": "Organization", "name": "IDM", "url": "https://idm.io/"}]}
-  </script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -31,8 +28,8 @@
           <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
           <li class="nav__item"><a class="nav__link" href="services.html">Услуги</a></li>
           <li class="nav__item"><a class="nav__link" href="portfolio.html">Портфолио</a></li>
-          <li class="nav__item"><a class="nav__link" href="reviews.html" aria-current="page">Отзывы</a></li>
-          <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+          <li class="nav__item"><a class="nav__link" href="reviews.html">Отзывы</a></li>
+          <li class="nav__item"><a class="nav__link" href="contacts.html" aria-current="page">Контакты</a></li>
           <li class="nav__item"><a class="nav__link nav__link--cta" href="contacts.html">Получить консультацию</a></li>
         </ul>
       </nav>
@@ -40,114 +37,91 @@
   </header>
 
   <main class="site-main" id="main-content">
-    <section class="page-hero page-hero--50" aria-labelledby="reviews-hero-title">
+    <section class="page-hero page-hero--40" aria-labelledby="contacts-hero-title">
       <div class="hero-bg" aria-hidden="true">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
-        <svg class="hero-waves" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true">
-          <path class="wave wave-1" d="M0,300 C360,100 720,500 1440,300" fill="none" stroke="rgba(0,229,204,0.15)" stroke-width="1.5"/>
+        <svg class="hero-waves" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
+          <path class="wave wave-1" d="M0,200 C360,80 720,320 1440,200" fill="none" stroke="rgba(0,229,204,0.12)" stroke-width="1.5"/>
         </svg>
       </div>
       <div class="page-hero__inner container">
-        <h1 class="page-hero__title" id="reviews-hero-title">Нам доверяют и рекомендуют</h1>
-        <p class="page-hero__lead">Текстовые отзывы, сканы писем и сертификаты партнёров.</p>
+        <h1 class="page-hero__title" id="contacts-hero-title">Свяжитесь с <span class="accent-yellow">нами</span></h1>
+        <p class="page-hero__lead">Ответим в рабочее время и предложим следующий шаг.</p>
       </div>
     </section>
 
-    <section class="reviews-page" aria-labelledby="reviews-page-title">
-      <div class="reviews-page__inner container">
-        <h2 class="visually-hidden" id="reviews-page-title">Материалы</h2>
-
-        <div class="reviews-tabs" data-reviews-tabs>
-          <div class="reviews-tabs__bar services-tabs-bar" role="tablist" aria-label="Разделы">
-            <button type="button" class="reviews-tabs__tab tab is-active" role="tab" id="reviews-tab-text" aria-selected="true" aria-controls="reviews-panel-text">Отзывы</button>
-            <button type="button" class="reviews-tabs__tab tab" role="tab" id="reviews-tab-letters" aria-selected="false" aria-controls="reviews-panel-letters" tabindex="-1">Благодарственные письма</button>
-            <button type="button" class="reviews-tabs__tab tab" role="tab" id="reviews-tab-cert" aria-selected="false" aria-controls="reviews-panel-cert" tabindex="-1">Сертификаты</button>
-          </div>
-
-          <div class="reviews-tabs__panel" id="reviews-panel-text" role="tabpanel" aria-labelledby="reviews-tab-text">
-            <ul class="reviews-text-list review-grid" id="reviews-text-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-lg); list-style: none;"></ul>
-          </div>
-
-          <div class="reviews-tabs__panel" id="reviews-panel-letters" role="tabpanel" aria-labelledby="reviews-tab-letters" hidden>
-            <p class="reviews-letters__hint">Нажмите на превью для просмотра. Замените изображения в <code class="reviews-letters__code">img/reviews/</code>. <!-- TODO: реальный контент --></p>
-            <ul class="letter-grid">
-              <li class="letter-grid__item">
-                <button type="button" class="letter-thumb" data-lightbox-src="https://picsum.photos/seed/idmscan1/1200/1600" data-lightbox-alt="Благодарность 1">
-                  <img class="letter-thumb__img" src="https://picsum.photos/seed/idmscan1/400/520" width="400" height="520" alt="Превью письма 1" loading="lazy">
-                  <span class="letter-thumb__label">Открыть</span>
-                </button>
-              </li>
-              <li class="letter-grid__item">
-                <button type="button" class="letter-thumb" data-lightbox-src="https://picsum.photos/seed/idmscan2/1200/1600" data-lightbox-alt="Благодарность 2">
-                  <img class="letter-thumb__img" src="https://picsum.photos/seed/idmscan2/400/520" width="400" height="520" alt="Превью письма 2" loading="lazy">
-                  <span class="letter-thumb__label">Открыть</span>
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          <div class="reviews-tabs__panel" id="reviews-panel-cert" role="tabpanel" aria-labelledby="reviews-tab-cert" hidden>
-            <ul class="letter-grid">
-              <li class="letter-grid__item">
-                <button type="button" class="letter-thumb" data-lightbox-src="https://picsum.photos/seed/cert1/1200/800" data-lightbox-alt="Сертификат партнёра">
-                  <img class="letter-thumb__img" src="https://picsum.photos/seed/cert1/400/260" width="400" height="260" alt="Сертификат" loading="lazy">
-                  <span class="letter-thumb__label">Открыть</span>
-                </button>
-              </li>
-            </ul>
-          </div>
+    <section class="container contacts-section">
+      <div class="contacts-layout">
+        <div class="card">
+          <h2 class="visually-hidden">Форма обратной связи</h2>
+          <form class="cta-form" id="contact-page-form" action="#" method="post" novalidate>
+            <div class="cta-form__field">
+              <label class="cta-form__label" for="c-name">Имя <span class="cta-form__req">*</span></label>
+              <input class="cta-form__input" id="c-name" name="name" type="text" required autocomplete="name" placeholder="Как к вам обращаться">
+            </div>
+            <div class="cta-form__field">
+              <label class="cta-form__label" for="c-phone">Телефон <span class="cta-form__req">*</span></label>
+              <input class="cta-form__input" id="c-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+996 (___) ___ ___">
+            </div>
+            <div class="cta-form__field">
+              <label class="cta-form__label" for="c-email">Email <span class="cta-form__req">*</span></label>
+              <input class="cta-form__input" id="c-email" name="email" type="email" required autocomplete="email" placeholder="name@company.kg">
+            </div>
+            <div class="cta-form__field">
+              <label class="cta-form__label" for="c-service">Услуга</label>
+              <select class="cta-form__input" id="c-service" name="service">
+                <option value="">Выберите услугу</option>
+                <option value="ads">Реклама</option>
+                <option value="seo">SEO</option>
+                <option value="smm">SMM</option>
+                <option value="design">Дизайн</option>
+                <option value="strategy">Стратегия</option>
+              </select>
+            </div>
+            <div class="cta-form__field">
+              <label class="cta-form__label" for="c-msg">Сообщение</label>
+              <textarea class="cta-form__textarea" id="c-msg" name="message" rows="4" placeholder="Кратко опишите задачу или вопрос"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+          </form>
         </div>
+        <aside class="contacts-aside" aria-label="Контакты и мессенджеры">
+          <h2 class="contacts-aside__title">Контакты</h2>
+          <div class="contact-line">
+            <span class="icon-wrap"><i data-lucide="phone" width="22" height="22"></i></span>
+            <div>
+              <a href="tel:+996312961999">+996 (312) 961 999</a>
+            </div>
+          </div>
+          <div class="contact-line">
+            <span class="icon-wrap"><i data-lucide="mail" width="22" height="22"></i></span>
+            <div>
+              <a href="mailto:info@idm.kg">info@idm.kg</a><br>
+              <a href="mailto:partners@idm.kg">partners@idm.kg</a>
+            </div>
+          </div>
+          <div class="contact-line">
+            <span class="icon-wrap"><i data-lucide="send" width="22" height="22"></i></span>
+            <div><a href="https://t.me/YOURHANDLE" target="_blank" rel="noopener noreferrer">Telegram</a></div>
+          </div>
+          <div class="contact-line">
+            <span class="icon-wrap"><i data-lucide="message-circle" width="22" height="22"></i></span>
+            <div><a href="https://wa.me/996312961999" target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
+          </div>
+          <p class="contacts-aside__address">Бишкек, ул. Юнусалиева, 173/2, офис 1</p>
+        </aside>
       </div>
     </section>
 
-    <section class="container" aria-labelledby="video-reviews-title">
-      <h2 class="services__title" id="video-reviews-title">Видеоотзывы</h2>
-      <div class="cases__grid" style="margin-top: var(--space-xl);">
-        <article class="card video-review-card">
-          <div style="position: relative; min-height: 200px;">
-            <div class="case-card__cover case-card__cover--empty" style="position: absolute; inset: 0;"></div>
-            <a href="#" class="video-review-card__play" aria-label="Смотреть видеоотзыв">
-              <i data-lucide="circle-play" width="64" height="64"></i>
-            </a>
-          </div>
-          <p class="service-card__text" style="padding: var(--space-md);">Клиент о кампании в digital <!-- TODO: реальный контент --></p>
-        </article>
-      </div>
-    </section>
-
-    <section class="cta cta-block-gradient container" aria-labelledby="reviews-cta-title" style="border-radius: 24px; margin-bottom: var(--space-3xl);">
-      <div class="cta__inner" style="text-align: center; max-width: 32rem; margin-inline: auto;">
-        <h2 class="cta__title" id="reviews-cta-title">Хотите такой же результат? Давайте начнём</h2>
-        <form class="cta-form" style="text-align: left;" action="#" method="post">
-          <div class="cta-form__field">
-            <label class="cta-form__label" for="rv-name">Имя</label>
-            <input class="cta-form__input" id="rv-name" name="name" type="text" autocomplete="name">
-          </div>
-          <div class="cta-form__field">
-            <label class="cta-form__label" for="rv-contact">Телефон или email</label>
-            <input class="cta-form__input" id="rv-contact" name="contact" type="text" autocomplete="tel">
-          </div>
-          <div class="cta-form__field">
-            <label class="cta-form__label" for="rv-svc">Услуга</label>
-            <select class="cta-form__input" id="rv-svc" name="service">
-              <option value="">Выберите услугу</option>
-              <option value="ads">Реклама</option>
-              <option value="seo">SEO</option>
-              <option value="smm">SMM</option>
-            </select>
-          </div>
-          <button type="button" class="btn btn-primary">Хочу консультацию</button>
-          <p class="final-cta__note" style="text-align: center;">✓ Уже 150 компаний начали именно с этого звонка</p>
-        </form>
+    <section class="container" aria-labelledby="map-title">
+      <h2 class="visually-hidden" id="map-title">Карта</h2>
+      <div class="map-placeholder">
+        <i data-lucide="map-pin" width="32" height="32" aria-hidden="true"></i>
+        <span>Карта: вставьте embed Google Maps или Яндекс <!-- TODO: реальный контент --></span>
       </div>
     </section>
   </main>
-
-  <div class="lightbox" id="review-lightbox" hidden role="dialog" aria-modal="true" aria-label="Просмотр">
-    <button type="button" class="lightbox__close" aria-label="Закрыть">&times;</button>
-    <img class="lightbox__img" src="" alt="">
-  </div>
 
   <footer class="site-footer">
     <div class="site-footer__inner container">
@@ -218,7 +192,5 @@
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="js/main.js" defer></script>
-  <script src="js/api.js" defer></script>
-  <script src="js/reviews-page.js" defer></script>
 </body>
 </html>

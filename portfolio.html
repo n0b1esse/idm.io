@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="IDM — кейсы: телеком, банки, ритейл, авто. Фильтр по направлениям, отзывы клиентов.">
-  <title>Кейсы — IDM</title>
+  <title>Портфолио — IDM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -14,23 +17,7 @@
         "@id": "https://idm.io/#organization",
         "name": "IDM",
         "url": "https://idm.io/",
-        "email": "info@idm.kg",
-        "description": "IDM — кейсы для телекома, банков, ритейла и авто в Кыргызстане."
-      },
-      {
-        "@type": "Service",
-        "@id": "https://idm.io/portfolio.html#service",
-        "name": "SEO и таргетированная реклама",
-        "serviceType": "DigitalMarketing",
-        "provider": { "@id": "https://idm.io/#organization" },
-        "areaServed": { "@type": "Country", "name": "Кыргызстан" }
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Елена Сафонова" },
-        "reviewBody": "Сложный продукт — нужна была аккуратная семантика и посадочные. Результат по SEO превзошёл ожидания.",
-        "itemReviewed": { "@id": "https://idm.io/#organization" },
-        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 }
+        "email": "info@idm.kg"
       }
     ]
   }
@@ -45,82 +32,111 @@
       <a class="site-header__logo logo" href="index.html">
         <img class="logo__img" src="img/idm-logo.png" alt="I DO MARKETING — digital agency" width="120" height="120" decoding="async">
       </a>
-
-      <button
-        class="burger site-header__burger"
-        type="button"
-        aria-expanded="false"
-        aria-controls="site-nav"
-        aria-label="Открыть меню"
-        id="burger-toggle"
-      >
+      <button class="burger site-header__burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню" id="burger-toggle">
         <span class="burger__line" aria-hidden="true"></span>
         <span class="burger__line" aria-hidden="true"></span>
         <span class="burger__line" aria-hidden="true"></span>
       </button>
-
       <nav class="site-header__nav nav" id="site-nav" aria-label="Основная навигация">
         <ul class="nav__list">
-          <li class="nav__item">
-            <a class="nav__link" href="services.html">Услуги</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="portfolio.html" aria-current="page">Кейсы</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="index.html#about">О нас</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link" href="reviews.html">Отзывы</a>
-          </li>
-          <li class="nav__item">
-            <a class="nav__link nav__link--cta" href="index.html#contact">Связаться</a>
-          </li>
+          <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link" href="services.html">Услуги</a></li>
+          <li class="nav__item"><a class="nav__link" href="portfolio.html" aria-current="page">Портфолио</a></li>
+          <li class="nav__item"><a class="nav__link" href="reviews.html">Отзывы</a></li>
+          <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--cta" href="contacts.html">Получить консультацию</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main class="site-main" id="main-content">
-    <section class="page-hero" aria-labelledby="page-hero-title">
+    <section class="page-hero page-hero--50" aria-labelledby="page-hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <svg class="hero-waves" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true">
+          <path class="wave wave-1" d="M0,300 C360,100 720,500 1440,300" fill="none" stroke="rgba(0,229,204,0.15)" stroke-width="1.5"/>
+          <path class="wave wave-2" d="M0,350 C400,150 800,450 1440,250" fill="none" stroke="rgba(100,40,180,0.2)" stroke-width="1"/>
+          <path class="wave wave-3" d="M0,250 C300,450 900,150 1440,350" fill="none" stroke="rgba(30,80,200,0.15)" stroke-width="1"/>
+        </svg>
+      </div>
       <div class="page-hero__inner container">
-        <h1 class="page-hero__title" id="page-hero-title">Кейсы</h1>
-        <p class="page-hero__lead">
-          Реальные проекты для брендов из телекома, банков, ритейла и авто. Отфильтруйте по направлению или пролистайте отзывы внизу страницы.
-        </p>
+        <h1 class="page-hero__title" id="page-hero-title">Наши <span class="accent-yellow">кейсы</span></h1>
+        <p class="page-hero__lead">Реальные результаты реальных клиентов. <!-- TODO: реальный контент --></p>
       </div>
     </section>
 
     <section class="portfolio" aria-labelledby="portfolio-title" data-portfolio-filter>
       <div class="portfolio__inner container">
-        <h2 class="portfolio__title" id="portfolio-title">Портфолио</h2>
-        <p class="portfolio__lead">Кейсы для телекома, банков, ритейла и авто — выберите направление или смотрите все сразу.</p>
-
+        <h2 class="portfolio__title visually-hidden" id="portfolio-title">Портфолио</h2>
         <div class="portfolio__filters" role="toolbar" aria-label="Фильтр кейсов">
           <button type="button" class="portfolio-filter-btn is-active" data-filter="all" aria-pressed="true">Все</button>
-          <button type="button" class="portfolio-filter-btn" data-filter="seo" aria-pressed="false">SEO</button>
           <button type="button" class="portfolio-filter-btn" data-filter="target" aria-pressed="false">Таргет</button>
+          <button type="button" class="portfolio-filter-btn" data-filter="seo" aria-pressed="false">SEO</button>
+          <button type="button" class="portfolio-filter-btn" data-filter="smm" aria-pressed="false">SMM</button>
+          <button type="button" class="portfolio-filter-btn" data-filter="content" aria-pressed="false">Контент</button>
+          <button type="button" class="portfolio-filter-btn" data-filter="design" aria-pressed="false">Дизайн</button>
         </div>
-
         <div class="portfolio__grid cases__grid" id="cases-grid"></div>
+        <p style="text-align: center; margin-top: var(--space-xl);">
+          <button type="button" class="btn btn-secondary" data-load-more-cases>Загрузить ещё</button>
+        </p>
+      </div>
+    </section>
+
+    <section class="services-slider-section" data-services-slider aria-labelledby="services-slider-title">
+      <div class="container">
+        <div class="services-slider__head">
+          <h2 id="services-slider-title" class="services__title">Эти результаты стали возможны благодаря</h2>
+          <div style="display: flex; gap: var(--space-sm);">
+            <button type="button" class="btn-arrow" data-slider-prev aria-label="Назад"><i data-lucide="chevron-left" width="20" height="20"></i></button>
+            <button type="button" class="btn-arrow" data-slider-next aria-label="Вперёд"><i data-lucide="chevron-right" width="20" height="20"></i></button>
+          </div>
+        </div>
+        <div class="services-slider__viewport">
+          <div class="services-slider__track" style="display: flex; gap: var(--space-lg); transition: transform 0.45s ease;">
+            <div class="services-slider__slide">
+              <article class="card service-rich-card" style="height: 100%;">
+                <i data-lucide="megaphone" width="36" height="36" style="color: var(--color-accent);"></i>
+                <h3 class="service-card__name" style="margin-top: var(--space-md);">Таргет</h3>
+                <p class="service-card__text">Performance в соцсетях.</p>
+                <a class="btn btn-secondary" href="services.html" style="margin-top: var(--space-md);">Подробнее</a>
+              </article>
+            </div>
+            <div class="services-slider__slide">
+              <article class="card service-rich-card" style="height: 100%;">
+                <i data-lucide="search" width="36" height="36" style="color: var(--color-accent);"></i>
+                <h3 class="service-card__name" style="margin-top: var(--space-md);">SEO</h3>
+                <p class="service-card__text">Органический рост.</p>
+                <a class="btn btn-secondary" href="services.html" style="margin-top: var(--space-md);">Подробнее</a>
+              </article>
+            </div>
+            <div class="services-slider__slide">
+              <article class="card service-rich-card" style="height: 100%;">
+                <i data-lucide="share-2" width="36" height="36" style="color: var(--color-accent);"></i>
+                <h3 class="service-card__name" style="margin-top: var(--space-md);">SMM</h3>
+                <p class="service-card__text">Контент и комьюнити.</p>
+                <a class="btn btn-secondary" href="services.html" style="margin-top: var(--space-md);">Подробнее</a>
+              </article>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="reviews-carousel-section" id="reviews" aria-labelledby="reviews-carousel-title" data-reviews-carousel tabindex="0">
       <div class="reviews-carousel-section__inner container">
         <h2 class="reviews-carousel-section__title" id="reviews-carousel-title">Отзывы клиентов</h2>
-        <p class="reviews-carousel-section__lead">Листайте свайпом или стрелками — слайды выровнены по центру (scroll-snap). <a href="reviews.html">Все отзывы и сканы писем</a>.</p>
-
+        <p class="reviews-carousel-section__lead">Реальный опыт партнёров. <a href="reviews.html">Все отзывы →</a></p>
         <div class="reviews-carousel">
-          <button type="button" class="reviews-carousel__btn reviews-carousel__btn--prev" aria-label="Предыдущий отзыв">
-            <span aria-hidden="true">‹</span>
-          </button>
-
+          <button type="button" class="reviews-carousel__btn reviews-carousel__btn--prev btn-arrow" aria-label="Предыдущий отзыв"><i data-lucide="chevron-left" width="22" height="22"></i></button>
           <div class="reviews-carousel__viewport">
             <div class="reviews-carousel__track">
               <article class="reviews-carousel__slide">
-                <blockquote class="review-card">
+                <blockquote class="review-card card">
                   <p class="review-card__text">«За три месяца вывели ключевые запросы в топ и удвоили органические заявки. Отчёты понятные, без воды.»</p>
+                  <p class="stars">★★★★★</p>
                   <footer class="review-card__footer">
                     <cite class="review-card__author">Анна Морозова</cite>
                     <span class="review-card__role">CMO, B2B-сервис</span>
@@ -128,45 +144,22 @@
                 </blockquote>
               </article>
               <article class="reviews-carousel__slide">
-                <blockquote class="review-card">
+                <blockquote class="review-card card">
                   <p class="review-card__text">«Таргет в VK и Telegram окупился уже в первом месяце. Команда быстро тестирует гипотезы и масштабирует победителей.»</p>
+                  <p class="stars">★★★★★</p>
                   <footer class="review-card__footer">
                     <cite class="review-card__author">Илья Ветров</cite>
                     <span class="review-card__role">Основатель e-commerce</span>
                   </footer>
                 </blockquote>
               </article>
-              <article class="reviews-carousel__slide">
-                <blockquote class="review-card">
-                  <p class="review-card__text">«Сложный продукт — нужна была аккуратная семантика и посадочные. Результат по SEO превзошёл ожидания.»</p>
-                  <footer class="review-card__footer">
-                    <cite class="review-card__author">Елена Сафонова</cite>
-                    <span class="review-card__role">Руководитель маркетинга</span>
-                  </footer>
-                </blockquote>
-              </article>
-              <article class="reviews-carousel__slide">
-                <blockquote class="review-card">
-                  <p class="review-card__text">«Запускали приложение с нуля: настроили воронку и креативы, держали CPA в рамках плана.»</p>
-                  <footer class="review-card__footer">
-                    <cite class="review-card__author">Максим Орлов</cite>
-                    <span class="review-card__role">Product lead</span>
-                  </footer>
-                </blockquote>
-              </article>
             </div>
           </div>
-
-          <button type="button" class="reviews-carousel__btn reviews-carousel__btn--next" aria-label="Следующий отзыв">
-            <span aria-hidden="true">›</span>
-          </button>
+          <button type="button" class="reviews-carousel__btn reviews-carousel__btn--next btn-arrow" aria-label="Следующий отзыв"><i data-lucide="chevron-right" width="22" height="22"></i></button>
         </div>
-
         <div class="reviews-carousel__dots" role="tablist" aria-label="Выбор отзыва">
           <button type="button" class="reviews-carousel__dot is-active" data-slide="0" role="tab" aria-selected="true" aria-label="Отзыв 1"></button>
           <button type="button" class="reviews-carousel__dot" data-slide="1" role="tab" aria-selected="false" aria-label="Отзыв 2"></button>
-          <button type="button" class="reviews-carousel__dot" data-slide="2" role="tab" aria-selected="false" aria-label="Отзыв 3"></button>
-          <button type="button" class="reviews-carousel__dot" data-slide="3" role="tab" aria-selected="false" aria-label="Отзыв 4"></button>
         </div>
       </div>
     </section>
@@ -174,29 +167,23 @@
 
   <footer class="site-footer">
     <div class="site-footer__inner container">
-      <div class="site-footer__grid">
+      <div class="site-footer__grid site-footer__grid--4">
         <div class="site-footer__brand">
           <a class="site-footer__logo logo logo--footer" href="index.html" aria-label="I DO MARKETING — digital agency, на главную">
             <img class="logo__img" src="img/idm-logo.png" alt="" width="120" height="120" decoding="async">
           </a>
           <p class="site-footer__tagline">Маркетинговое агентство</p>
+          <p class="site-footer__desc">Digital-стратегия, performance и креатив для бизнеса в Кыргызстане и регионе.</p>
         </div>
 
         <div class="site-footer__col">
           <h2 class="site-footer__heading">Навигация</h2>
           <ul class="site-footer__list footer-list">
-            <li class="footer-list__item">
-              <a class="footer-list__link" href="services.html">Услуги</a>
-            </li>
-            <li class="footer-list__item">
-              <a class="footer-list__link" href="portfolio.html">Кейсы</a>
-            </li>
-            <li class="footer-list__item">
-              <a class="footer-list__link" href="reviews.html">Отзывы</a>
-            </li>
-            <li class="footer-list__item">
-              <a class="footer-list__link" href="index.html#contact">Контакты</a>
-            </li>
+            <li class="footer-list__item"><a class="footer-list__link" href="index.html">Главная</a></li>
+            <li class="footer-list__item"><a class="footer-list__link" href="services.html">Услуги</a></li>
+            <li class="footer-list__item"><a class="footer-list__link" href="portfolio.html">Портфолио</a></li>
+            <li class="footer-list__item"><a class="footer-list__link" href="reviews.html">Отзывы</a></li>
+            <li class="footer-list__item"><a class="footer-list__link" href="contacts.html">Контакты</a></li>
           </ul>
         </div>
 
@@ -207,35 +194,49 @@
             <a class="site-footer__link" href="mailto:info@idm.kg">info@idm.kg</a><br>
             <a class="site-footer__link" href="mailto:partners@idm.kg">partners@idm.kg</a><br>
             Бишкек, ул. Юнусалиева, 173/2, офис 1
-            <ul class="site-footer__social" aria-label="IDM в соцсетях">
-              <li>
-                <a class="site-footer__social-link" href="https://www.instagram.com/idm.kg/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
-                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" stroke="currentColor" stroke-width="1.75"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="1.75"/><path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
-                </a>
-              </li>
-              <li>
-                <a class="site-footer__social-link" href="https://wa.me/996312961999" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
-                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.123 1.036 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                </a>
-              </li>
-              <li>
-                <a class="site-footer__social-link" href="https://www.linkedin.com/company/idm-kyrgyzstan" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
-                  <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.07 2.07 0 11-.001-4.139 2.07 2.07 0 01.001 4.139zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                </a>
-              </li>
-            </ul>
           </address>
+        </div>
+
+        <div class="site-footer__col">
+          <h2 class="site-footer__heading">Соцсети</h2>
+          <ul class="site-footer__social" aria-label="IDM в соцсетях">
+            <li>
+              <a class="site-footer__social-link" href="https://www.instagram.com/idm.kg/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" stroke="currentColor" stroke-width="1.75"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="1.75"/><path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="site-footer__social-link" href="https://wa.me/996312961999" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.123 1.036 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="site-footer__social-link" href="https://www.linkedin.com/company/idm-kyrgyzstan" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.07 2.07 0 11-.001-4.139 2.07 2.07 0 01.001 4.139zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 
-      <div class="site-footer__bottom">
+      <div class="site-footer__bottom site-footer__legal">
         <p class="site-footer__copy">&copy; <span id="footer-year"></span> IDM. Все права защищены.</p>
+        <a href="#">Политика конфиденциальности</a>
       </div>
     </div>
   </footer>
 
+  <div class="float-widget" aria-label="Быстрая связь">
+    <a class="widget-btn" href="https://t.me/YOURHANDLE" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Написать в Telegram">
+      <i data-lucide="send" width="24" height="24" aria-hidden="true"></i>
+    </a>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="js/main.js" defer></script>
   <script src="js/api.js" defer></script>
   <script src="js/portfolio.js" defer></script>
+  <script src="js/services-slider.js" defer></script>
+  <script src="js/load-more-cases.js" defer></script>
 </body>
 </html>

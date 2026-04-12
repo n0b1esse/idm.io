@@ -1,5 +1,5 @@
 /**
- * IDM — бургер-меню, год в футере, анимация счётчиков
+ * IDM — бургер, год, скролл шапки, reveal, счётчики, Lucide, exit-intent, форма
  */
 (function () {
   "use strict";
@@ -8,6 +8,18 @@
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
   }
+
+  const header = document.getElementById("site-header");
+  function onScrollHeader() {
+    if (!header) return;
+    if (window.scrollY > 8) {
+      header.classList.add("is-scrolled");
+    } else {
+      header.classList.remove("is-scrolled");
+    }
+  }
+  onScrollHeader();
+  window.addEventListener("scroll", onScrollHeader, { passive: true });
 
   const burger = document.getElementById("burger-toggle");
   const nav = document.getElementById("site-nav");
@@ -58,97 +70,156 @@
     });
   }
 
+  /* Reveal on scroll */
+  const revealEls = document.querySelectorAll(".reveal");
+  if (revealEls.length) {
+    const revealObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    revealEls.forEach((el) => revealObs.observe(el));
+  }
+
   /**
-   * Анимирует числа внутри root от 0 до data-number-target (ease-out).
-   * @param {HTMLElement} rootElement — контейнер с [data-number-target]
-   * @param {{ duration?: number }} [options]
+   * Счётчики: data-number-target (legacy) и data-target (спека)
    */
-  function animateNumbers(rootElement, options) {
-    if (!rootElement) {
+  function animateCounterEl(el, options) {
+    const duration = options && typeof options.duration === "number" ? options.duration : 2000;
+    const raw =
+      el.getAttribute("data-target") != null && el.getAttribute("data-target") !== ""
+        ? el.getAttribute("data-target")
+        : el.getAttribute("data-number-target");
+    if (raw === null || raw === "") {
       return;
     }
+    const target = Number.parseFloat(raw);
+    if (Number.isNaN(target)) {
+      return;
+    }
+    const suffix =
+      el.getAttribute("data-suffix") || el.getAttribute("data-number-suffix") || "";
+    const decimalsAttr = el.getAttribute("data-number-decimals");
+    let decimals;
+    if (decimalsAttr !== null && decimalsAttr !== "") {
+      decimals = Number.parseInt(decimalsAttr, 10);
+    } else if (!String(raw).includes(".")) {
+      decimals = 0;
+    } else {
+      decimals = (String(raw).split(".")[1] || "").length;
+    }
+    const safeDecimals = Number.isFinite(decimals) && decimals >= 0 ? decimals : 0;
+    let startTs = null;
 
-    const duration = options && typeof options.duration === "number" ? options.duration : 1800;
-    const nodes = rootElement.querySelectorAll("[data-number-target]");
+    function easeOutCubic(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
 
-    nodes.forEach((el) => {
-      const raw = el.getAttribute("data-number-target");
-      if (raw === null || raw === "") {
-        return;
+    function frame(ts) {
+      if (startTs === null) {
+        startTs = ts;
       }
-
-      const target = Number.parseFloat(raw);
-      if (Number.isNaN(target)) {
-        return;
-      }
-
-      const suffix = el.getAttribute("data-number-suffix") || "";
-      const decimalsAttr = el.getAttribute("data-number-decimals");
-      let decimals;
-      if (decimalsAttr !== null && decimalsAttr !== "") {
-        decimals = Number.parseInt(decimalsAttr, 10);
-      } else if (!raw.includes(".")) {
-        decimals = 0;
+      const progress = Math.min((ts - startTs) / duration, 1);
+      const eased = easeOutCubic(progress);
+      const current = target * eased;
+      const display =
+        safeDecimals > 0 ? current.toFixed(safeDecimals) : String(Math.floor(current));
+      el.textContent = display + suffix;
+      if (progress < 1) {
+        requestAnimationFrame(frame);
       } else {
-        decimals = (raw.split(".")[1] || "").length;
+        const finalDisplay =
+          safeDecimals > 0 ? target.toFixed(safeDecimals) : String(Math.round(target));
+        el.textContent = finalDisplay + suffix;
       }
-
-      const safeDecimals = Number.isFinite(decimals) && decimals >= 0 ? decimals : 0;
-      let startTs = null;
-
-      function easeOutQuad(t) {
-        return 1 - (1 - t) * (1 - t);
-      }
-
-      function frame(ts) {
-        if (startTs === null) {
-          startTs = ts;
-        }
-        const elapsed = ts - startTs;
-        const t = Math.min(1, elapsed / duration);
-        const eased = easeOutQuad(t);
-        const current = target * eased;
-        const display =
-          safeDecimals > 0 ? current.toFixed(safeDecimals) : String(Math.round(current));
-        el.textContent = display + suffix;
-        if (t < 1) {
-          requestAnimationFrame(frame);
-        } else {
-          const finalDisplay =
-            safeDecimals > 0 ? target.toFixed(safeDecimals) : String(Math.round(target));
-          el.textContent = finalDisplay + suffix;
-        }
-      }
-
-      requestAnimationFrame(frame);
-    });
+    }
+    requestAnimationFrame(frame);
   }
 
   const statsSection = document.getElementById("stats-numbers");
   if (statsSection) {
-    const observer = new IntersectionObserver(
+    const counterObs = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
-            return;
-          }
-          if (statsSection.dataset.numbersAnimated === "true") {
+          if (!entry.isIntersecting || statsSection.dataset.numbersAnimated === "true") {
             return;
           }
           statsSection.dataset.numbersAnimated = "true";
-          animateNumbers(statsSection, { duration: 1900 });
+          statsSection.querySelectorAll("[data-number-target], [data-target]").forEach((el) => {
+            if (el instanceof HTMLElement) {
+              animateCounterEl(el, { duration: 2000 });
+            }
+          });
           obs.disconnect();
         });
       },
       { threshold: 0.25, rootMargin: "0px 0px -5% 0px" }
     );
-    observer.observe(statsSection);
+    counterObs.observe(statsSection);
+  }
+
+  /**
+   * Для внешних вызовов (WordPress и т.д.)
+   */
+  function animateNumbers(rootElement, options) {
+    if (!rootElement) {
+      return;
+    }
+    rootElement.querySelectorAll("[data-number-target]").forEach((el) => {
+      animateCounterEl(el, options || { duration: 1800 });
+    });
   }
 
   window.animateNumbers = animateNumbers;
 
+  /* Lucide icons */
+  function initLucide() {
+    if (typeof lucide !== "undefined" && lucide.createIcons) {
+      lucide.createIcons();
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initLucide);
+  } else {
+    initLucide();
+  }
+
+  /* Exit-intent popup */
+  const exitPopup = document.getElementById("exit-popup");
+  const exitClose = document.getElementById("exit-popup-close");
+  if (exitPopup) {
+    let shown = false;
+    document.addEventListener("mouseleave", (e) => {
+      if (shown || e.clientY >= 0) {
+        return;
+      }
+      if (sessionStorage.getItem("idm-exit-popup") === "1") {
+        return;
+      }
+      shown = true;
+      exitPopup.classList.add("active");
+    });
+    function closeExit() {
+      exitPopup.classList.remove("active");
+      sessionStorage.setItem("idm-exit-popup", "1");
+    }
+    if (exitClose) {
+      exitClose.addEventListener("click", closeExit);
+    }
+    exitPopup.addEventListener("click", (e) => {
+      if (e.target === exitPopup) {
+        closeExit();
+      }
+    });
+  }
+
   /**
-   * Форма заявки: проверка перед отправкой (обязательные поля, email, телефон).
+   * Форма заявки: проверка перед отправкой
    */
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
@@ -199,7 +270,10 @@
     }
 
     function validateEmail() {
-      const v = emailInput ? emailInput.value.trim() : "";
+      if (!emailInput || !emailError) {
+        return true;
+      }
+      const v = emailInput.value.trim();
       if (!v) {
         setFieldError(emailInput, emailError, "Укажите email.");
         return false;
@@ -246,7 +320,7 @@
       }
 
       const okName = validateName();
-      const okEmail = validateEmail();
+      const okEmail = emailInput ? validateEmail() : true;
       const okPhone = validatePhone();
       const okMessage = validateMessage();
 

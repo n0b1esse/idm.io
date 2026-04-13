@@ -2314,6 +2314,14 @@ body.lightbox-open {
 }
 
 @media (max-width: 768px) {
+  :root {
+    --header-height: 4.75rem;
+    --space-2xl: 2.25rem;
+    --space-3xl: 3.25rem;
+    --card-padding: 1.1rem;
+    --grid-gap: 1rem;
+  }
+
   .site-main > section:not(.hero):not(.page-hero) {
     padding-block: var(--space-section-y-mobile);
   }
@@ -2324,6 +2332,78 @@ body.lightbox-open {
 
   h2 {
     font-size: clamp(1.5rem, 4vw, 1.85rem);
+  }
+
+  .site-header__inner {
+    min-height: var(--header-height);
+  }
+
+  .logo__img {
+    height: 3.5rem;
+    max-width: 14rem;
+  }
+
+  .logo--footer .logo__img {
+    height: 4.25rem;
+    max-width: 16rem;
+  }
+
+  .hero--full {
+    min-height: auto;
+    align-items: flex-start;
+    padding-block: calc(var(--header-height) + var(--space-lg)) var(--space-2xl);
+  }
+
+  .hero__subtitle,
+  .page-hero__lead,
+  .section-head .lead,
+  .section__lead {
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+  }
+
+  .hero__badges {
+    gap: var(--space-md);
+  }
+
+  .nav__link,
+  .portfolio-filter-btn,
+  .reviews-tabs__tab,
+  .services-tabs-bar .tab {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .service-card__icon {
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .blob-1,
+  .blob-2 {
+    filter: blur(70px);
+    opacity: 0.28;
+  }
+
+  .featured-review__quote-mark {
+    font-size: 76px;
+    top: -0.35rem;
+  }
+
+  .timeline-process__num {
+    font-size: 2.2rem;
+  }
+
+  .map-placeholder {
+    min-height: 240px;
+    padding: var(--space-lg);
+  }
+
+  .idm-new-why__card,
+  .idm-new-cooperation__card {
+    padding: var(--space-lg);
   }
 }
 
@@ -2806,6 +2886,9 @@ body.lightbox-open {
 .idm-new-chat-widget__link svg {
   width: 18px;
   height: 18px;
+  max-width: 18px;
+  max-height: 18px;
+  flex: 0 0 18px;
 }
 
 .idm-new-chat-widget__link--wa:hover {
@@ -2832,6 +2915,9 @@ body.lightbox-open {
 .idm-new-chat-widget__toggle-icon {
   width: 24px;
   height: 24px;
+  max-width: 24px;
+  max-height: 24px;
+  flex: 0 0 24px;
 }
 
 .idm-new-chat-widget__toggle-icon--close {
@@ -2861,6 +2947,22 @@ body.lightbox-open {
     min-height: 40px;
     padding: 8px 12px;
     font-size: var(--font-size-xs);
+  }
+
+  /* Guard against oversized inline SVGs on small screens. */
+  .idm-new-chat-widget__link svg,
+  .idm-new-chat-widget__toggle-icon,
+  .idm-new-why__icon svg {
+    width: 20px;
+    height: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    flex: 0 0 20px;
+  }
+
+  .idm-new-why__icon {
+    width: 40px;
+    height: 40px;
   }
 }
 
@@ -2969,6 +3071,9 @@ body.lightbox-open {
 .idm-new-why__icon svg {
   width: 24px;
   height: 24px;
+  max-width: 24px;
+  max-height: 24px;
+  flex: 0 0 24px;
 }
 
 .idm-new-why__card-title {
@@ -3161,77 +3266,3 @@ body.lightbox-open {
   }
 }
 
-/* IDM: ROI-калькулятор */
-.idm-new-roi {
-  padding-block: var(--space-section-y);
-  border-top: 1px solid var(--color-border);
-}
-
-.idm-new-roi__layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-lg);
-}
-
-.idm-new-roi__controls,
-.idm-new-roi__results {
-  display: grid;
-  gap: var(--space-lg);
-  align-content: start;
-}
-
-.idm-new-roi__title {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2rem);
-}
-
-.idm-new-roi__field {
-  display: grid;
-  gap: var(--space-sm);
-}
-
-.idm-new-roi__range {
-  width: 100%;
-  accent-color: var(--color-accent);
-}
-
-.idm-new-roi__budget-value {
-  margin: 0;
-  color: var(--color-muted);
-  font-size: var(--font-size-sm);
-}
-
-.idm-new-roi__metrics {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: var(--space-sm);
-}
-
-.idm-new-roi__metrics li {
-  padding: var(--space-sm) 0;
-  border-bottom: 1px solid var(--color-border);
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-md);
-}
-
-.idm-new-roi__metrics strong {
-  font-size: var(--font-size-lg);
-  color: var(--color-accent);
-  text-align: right;
-}
-
-.idm-new-roi__disclaimer {
-  margin: 0;
-  color: var(--color-muted);
-  font-size: var(--font-size-xs);
-}
-
-@media (min-width: 960px) {
-  .idm-new-roi__layout {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
-}

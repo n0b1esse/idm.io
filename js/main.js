@@ -9,6 +9,19 @@
     yearEl.textContent = String(new Date().getFullYear());
   }
 
+  function normalizePhone(value) {
+    return String(value || "").replace(/\s+/g, "");
+  }
+
+  function isStrictPhone(value) {
+    const normalized = normalizePhone(value);
+    return /^\+?\d{8,15}$/.test(normalized);
+  }
+
+  function hasMinNameLength(value) {
+    return String(value || "").trim().length >= 2;
+  }
+
   const header = document.getElementById("site-header");
   function onScrollHeader() {
     if (!header) return;
@@ -235,15 +248,6 @@
 
     const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
-    function phoneDigits(value) {
-      return String(value).replace(/\D/g, "");
-    }
-
-    function isValidPhone(value) {
-      const d = phoneDigits(value);
-      return d.length >= 10 && d.length <= 15;
-    }
-
     function setFieldError(input, errorEl, message) {
       if (!input || !errorEl) {
         return;
@@ -261,8 +265,8 @@
 
     function validateName() {
       const v = nameInput ? nameInput.value.trim() : "";
-      if (!v) {
-        setFieldError(nameInput, nameError, "Укажите имя.");
+      if (!hasMinNameLength(v)) {
+        setFieldError(nameInput, nameError, "Имя должно содержать минимум 2 символа.");
         return false;
       }
       setFieldError(nameInput, nameError, "");
@@ -292,11 +296,11 @@
         setFieldError(phoneInput, phoneError, "Укажите телефон.");
         return false;
       }
-      if (!isValidPhone(v)) {
+      if (!isStrictPhone(v)) {
         setFieldError(
           phoneInput,
           phoneError,
-          "Введите номер: от 10 до 15 цифр (можно с +996, +7, скобками и пробелами)."
+          "Телефон: только цифры и +, длина от 8 до 15 символов."
         );
         return false;
       }
@@ -343,4 +347,147 @@
       }
     });
   }
+
+  const exitPopupForm = document.getElementById("exit-popup-form");
+  if (exitPopupForm) {
+    const exitName = document.getElementById("exit-name");
+    const exitPhone = document.getElementById("exit-phone");
+    const exitCloseBtn = document.getElementById("exit-popup-close");
+
+    exitPopupForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (!(exitName instanceof HTMLInputElement) || !(exitPhone instanceof HTMLInputElement)) {
+        return;
+      }
+
+      const nameValid = hasMinNameLength(exitName.value);
+      const phoneValid = isStrictPhone(exitPhone.value);
+
+      exitName.setAttribute("aria-invalid", nameValid ? "false" : "true");
+      exitPhone.setAttribute("aria-invalid", phoneValid ? "false" : "true");
+
+      if (!nameValid) {
+        exitName.focus();
+        return;
+      }
+
+      if (!phoneValid) {
+        exitPhone.focus();
+        return;
+      }
+
+      if (exitCloseBtn instanceof HTMLButtonElement) {
+        exitCloseBtn.click();
+      }
+    });
+  }
+
+  const contactPageForm = document.getElementById("contact-page-form");
+  if (contactPageForm) {
+    const contactPageName = document.getElementById("c-name");
+    const contactPagePhone = document.getElementById("c-phone");
+
+    contactPageForm.addEventListener("submit", (e) => {
+      if (
+        !(contactPageName instanceof HTMLInputElement) ||
+        !(contactPagePhone instanceof HTMLInputElement)
+      ) {
+        return;
+      }
+
+      const nameValid = hasMinNameLength(contactPageName.value);
+      const phoneValid = isStrictPhone(contactPagePhone.value);
+
+      contactPageName.setAttribute("aria-invalid", nameValid ? "false" : "true");
+      contactPagePhone.setAttribute("aria-invalid", phoneValid ? "false" : "true");
+
+      if (!nameValid || !phoneValid) {
+        e.preventDefault();
+        if (!nameValid) {
+          contactPageName.focus();
+          return;
+        }
+        contactPagePhone.focus();
+      }
+    });
+  }
+
+  /* IDM: логика WhatsApp/Telegram виджета */
+  const chatWidget = document.querySelector("[data-idm-new-chat]");
+  if (chatWidget instanceof HTMLElement) {
+    const chatToggle = chatWidget.querySelector(".idm-new-chat-widget__toggle");
+
+    window.setTimeout(() => {
+      chatWidget.classList.add("idm-new-chat-widget--visible");
+    }, 2000);
+
+    if (chatToggle instanceof HTMLButtonElement) {
+      chatToggle.addEventListener("click", () => {
+        const isOpen = chatWidget.classList.toggle("idm-new-chat-widget--open");
+        chatToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      });
+    }
+
+    document.addEventListener("click", (e) => {
+      const target = e.target;
+      if (!(target instanceof Node) || chatWidget.contains(target)) {
+        return;
+      }
+      chatWidget.classList.remove("idm-new-chat-widget--open");
+      if (chatToggle instanceof HTMLButtonElement) {
+        chatToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
+
+  /* IDM: FAQ аккордеон (одна открытая карточка) */
+  document.querySelectorAll("[data-idm-new-faq]").forEach((faqRoot) => {
+    const faqItems = faqRoot.querySelectorAll(".idm-new-faq__item");
+    if (!faqItems.length) {
+      return;
+    }
+
+    function closeItem(item) {
+      const trigger = item.querySelector(".idm-new-faq__question");
+      const answer = item.querySelector(".idm-new-faq__answer");
+      if (!(trigger instanceof HTMLButtonElement) || !(answer instanceof HTMLElement)) {
+        return;
+      }
+      item.classList.remove("idm-new-faq__item--open");
+      trigger.setAttribute("aria-expanded", "false");
+      answer.style.maxHeight = "0px";
+    }
+
+    function openItem(item) {
+      const trigger = item.querySelector(".idm-new-faq__question");
+      const answer = item.querySelector(".idm-new-faq__answer");
+      if (!(trigger instanceof HTMLButtonElement) || !(answer instanceof HTMLElement)) {
+        return;
+      }
+      item.classList.add("idm-new-faq__item--open");
+      trigger.setAttribute("aria-expanded", "true");
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+
+    faqItems.forEach((item, idx) => {
+      const trigger = item.querySelector(".idm-new-faq__question");
+      if (!(trigger instanceof HTMLButtonElement)) {
+        return;
+      }
+
+      trigger.addEventListener("click", () => {
+        const isOpen = item.classList.contains("idm-new-faq__item--open");
+        faqItems.forEach((currentItem) => closeItem(currentItem));
+        if (!isOpen) {
+          openItem(item);
+        }
+      });
+
+      if (idx === 0) {
+        openItem(item);
+      } else {
+        closeItem(item);
+      }
+    });
+  });
 })();

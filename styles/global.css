@@ -2750,3 +2750,488 @@ body.lightbox-open {
   flex-shrink: 0;
   color: var(--color-accent);
 }
+
+/* IDM: WhatsApp/Telegram виджет */
+.idm-new-chat-widget {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-sm);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+}
+
+.idm-new-chat-widget.idm-new-chat-widget--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.idm-new-chat-widget__menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.idm-new-chat-widget.idm-new-chat-widget--open .idm-new-chat-widget__menu,
+.idm-new-chat-widget:hover .idm-new-chat-widget__menu {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.idm-new-chat-widget__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--bg-surface);
+  color: var(--color-text);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+}
+
+.idm-new-chat-widget__link svg {
+  width: 18px;
+  height: 18px;
+}
+
+.idm-new-chat-widget__link--wa:hover {
+  color: #25d366;
+}
+
+.idm-new-chat-widget__link--tg:hover {
+  color: #2aabee;
+}
+
+.idm-new-chat-widget__toggle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--color-accent);
+  color: var(--bg-base);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.idm-new-chat-widget__toggle-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.idm-new-chat-widget__toggle-icon--close {
+  display: none;
+}
+
+.idm-new-chat-widget.idm-new-chat-widget--open .idm-new-chat-widget__toggle-icon--open {
+  display: none;
+}
+
+.idm-new-chat-widget.idm-new-chat-widget--open .idm-new-chat-widget__toggle-icon--close {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .idm-new-chat-widget {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .idm-new-chat-widget__toggle {
+    width: 48px;
+    height: 48px;
+  }
+
+  .idm-new-chat-widget__link {
+    min-height: 40px;
+    padding: 8px 12px;
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* IDM: FAQ секция */
+.idm-new-faq {
+  padding-block: var(--space-section-y);
+  border-top: 1px solid var(--color-border);
+}
+
+.idm-new-faq__title {
+  margin-bottom: var(--space-sm);
+}
+
+.idm-new-faq__subtitle {
+  color: var(--color-text-muted);
+}
+
+.idm-new-faq__list {
+  display: grid;
+  gap: var(--space-md);
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.idm-new-faq__item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  overflow: hidden;
+}
+
+.idm-new-faq__question {
+  width: 100%;
+  min-height: 64px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.idm-new-faq__icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-accent);
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.idm-new-faq__item.idm-new-faq__item--open .idm-new-faq__icon {
+  transform: rotate(45deg);
+}
+
+.idm-new-faq__answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.idm-new-faq__answer p {
+  margin: 0;
+  padding: 0 20px 20px;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* IDM: Почему выбирают IDM */
+.idm-new-why {
+  border-top: 1px solid var(--color-border);
+}
+
+.idm-new-why__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.idm-new-why__card {
+  padding: var(--space-xl);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.idm-new-why__card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 229, 204, 0.4);
+}
+
+.idm-new-why__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: var(--space-md);
+  border-radius: 50%;
+  color: var(--color-accent);
+  background: rgba(0, 229, 204, 0.12);
+}
+
+.idm-new-why__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.idm-new-why__card-title {
+  margin-bottom: var(--space-sm);
+  font-size: var(--font-size-lg);
+}
+
+.idm-new-why__card-text {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+@media (min-width: 768px) {
+  .idm-new-why__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* IDM: Форматы сотрудничества */
+.idm-new-cooperation {
+  border-top: 1px solid var(--color-border);
+}
+
+.idm-new-cooperation__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.idm-new-cooperation__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+}
+
+.idm-new-cooperation__card--featured {
+  border-color: rgba(0, 229, 204, 0.5);
+  box-shadow: 0 0 0 1px rgba(0, 229, 204, 0.2);
+  background: linear-gradient(180deg, rgba(0, 229, 204, 0.08), rgba(0, 0, 0, 0.1));
+}
+
+.idm-new-cooperation__label {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  letter-spacing: 0.03em;
+  color: var(--color-accent);
+}
+
+.idm-new-cooperation__lead {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+.idm-new-cooperation__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}
+
+.idm-new-cooperation__list li {
+  position: relative;
+  padding-left: var(--space-lg);
+}
+
+.idm-new-cooperation__list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+.idm-new-cooperation__link {
+  margin-top: auto;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.idm-new-cooperation__link:hover {
+  color: var(--color-accent-hover);
+}
+
+@media (min-width: 1024px) {
+  .idm-new-cooperation__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* IDM: Расширенные отзывы */
+.idm-new-reviews-extended {
+  border-top: 1px solid var(--color-border);
+}
+
+.idm-new-reviews-extended__meta {
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.idm-new-reviews-extended__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.idm-new-reviews-extended__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+}
+
+.idm-new-reviews-extended__top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.idm-new-reviews-extended__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  color: var(--bg-base);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-hover));
+}
+
+.idm-new-reviews-extended__name {
+  font-weight: 600;
+}
+
+.idm-new-reviews-extended__role {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.idm-new-reviews-extended__stars {
+  color: var(--color-accent-2);
+  letter-spacing: 0.08em;
+}
+
+.idm-new-reviews-extended__text {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+}
+
+.idm-new-reviews-extended__tag {
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.idm-new-reviews-extended__tag--seo {
+  color: #84e1bc;
+  background: rgba(132, 225, 188, 0.18);
+}
+
+.idm-new-reviews-extended__tag--target {
+  color: #8ecbff;
+  background: rgba(142, 203, 255, 0.18);
+}
+
+.idm-new-reviews-extended__tag--smm {
+  color: #d7a7ff;
+  background: rgba(215, 167, 255, 0.18);
+}
+
+@media (min-width: 768px) {
+  .idm-new-reviews-extended__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .idm-new-reviews-extended__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* IDM: ROI-калькулятор */
+.idm-new-roi {
+  padding-block: var(--space-section-y);
+  border-top: 1px solid var(--color-border);
+}
+
+.idm-new-roi__layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+.idm-new-roi__controls,
+.idm-new-roi__results {
+  display: grid;
+  gap: var(--space-lg);
+  align-content: start;
+}
+
+.idm-new-roi__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.1rem + 1.5vw, 2rem);
+}
+
+.idm-new-roi__field {
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.idm-new-roi__range {
+  width: 100%;
+  accent-color: var(--color-accent);
+}
+
+.idm-new-roi__budget-value {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--font-size-sm);
+}
+
+.idm-new-roi__metrics {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-sm);
+}
+
+.idm-new-roi__metrics li {
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.idm-new-roi__metrics strong {
+  font-size: var(--font-size-lg);
+  color: var(--color-accent);
+  text-align: right;
+}
+
+.idm-new-roi__disclaimer {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--font-size-xs);
+}
+
+@media (min-width: 960px) {
+  .idm-new-roi__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Контакты IDM — Бишкек, телефон, email, мессенджеры.">
-  <title>Контакты — IDM</title>
+  <meta name="description" content="ROI-калькулятор IDM: прогноз охвата, кликов, лидов и CPL по каналам digital-продвижения.">
+  <title>Калькулятор ROI — IDM</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -27,10 +27,10 @@
         <ul class="nav__list">
           <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
           <li class="nav__item"><a class="nav__link" href="services.html">Услуги</a></li>
-          <li class="nav__item"><a class="nav__link" href="roi.html">Калькулятор ROI</a></li>
+          <li class="nav__item"><a class="nav__link" href="roi.html" aria-current="page">Калькулятор ROI</a></li>
           <li class="nav__item"><a class="nav__link" href="portfolio.html">Портфолио</a></li>
           <li class="nav__item"><a class="nav__link" href="reviews.html">Отзывы</a></li>
-          <li class="nav__item"><a class="nav__link" href="contacts.html" aria-current="page">Контакты</a></li>
+          <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
           <li class="nav__item"><a class="nav__link nav__link--cta" href="contacts.html">Получить консультацию</a></li>
         </ul>
       </nav>
@@ -38,88 +38,59 @@
   </header>
 
   <main class="site-main" id="main-content">
-    <section class="page-hero page-hero--40" aria-labelledby="contacts-hero-title">
+    <section class="page-hero page-hero--40" aria-labelledby="roi-hero-title">
       <div class="hero-bg" aria-hidden="true">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
-        <svg class="hero-waves" viewBox="0 0 1440 400" preserveAspectRatio="none" aria-hidden="true">
-          <path class="wave wave-1" d="M0,200 C360,80 720,320 1440,200" fill="none" stroke="rgba(0,229,204,0.12)" stroke-width="1.5"/>
-        </svg>
       </div>
       <div class="page-hero__inner container">
-        <h1 class="page-hero__title" id="contacts-hero-title">Свяжитесь с <span class="accent-yellow">нами</span></h1>
-        <p class="page-hero__lead">Ответим в рабочее время и предложим следующий шаг.</p>
+        <h1 class="page-hero__title" id="roi-hero-title">Калькулятор <span class="accent-yellow">ROI</span></h1>
+        <p class="page-hero__lead">Оцените потенциальный результат digital-кампаний в реальном времени.</p>
       </div>
     </section>
 
-    <section class="container contacts-section">
-      <div class="contacts-layout">
-        <div class="card">
-          <h2 class="visually-hidden">Форма обратной связи</h2>
-          <form class="cta-form" id="contact-page-form" action="#" method="post" novalidate>
-            <div class="cta-form__field">
-              <label class="cta-form__label" for="c-name">Имя <span class="cta-form__req">*</span></label>
-              <input class="cta-form__input" id="c-name" name="name" type="text" required autocomplete="name" placeholder="Как к вам обращаться">
-            </div>
-            <div class="cta-form__field">
-              <label class="cta-form__label" for="c-phone">Телефон <span class="cta-form__req">*</span></label>
-              <input class="cta-form__input" id="c-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+996 (___) ___ ___">
-            </div>
-            <div class="cta-form__field">
-              <label class="cta-form__label" for="c-email">Email <span class="cta-form__req">*</span></label>
-              <input class="cta-form__input" id="c-email" name="email" type="email" required autocomplete="email" placeholder="name@company.kg">
-            </div>
-            <div class="cta-form__field">
-              <label class="cta-form__label" for="c-service">Услуга</label>
-              <select class="cta-form__input" id="c-service" name="service">
-                <option value="">Выберите услугу</option>
-                <option value="ads">Реклама</option>
-                <option value="seo">SEO</option>
-                <option value="smm">SMM</option>
-                <option value="design">Дизайн</option>
-                <option value="strategy">Стратегия</option>
-              </select>
-            </div>
-            <div class="cta-form__field">
-              <label class="cta-form__label" for="c-msg">Сообщение</label>
-              <textarea class="cta-form__textarea" id="c-msg" name="message" rows="4" placeholder="Кратко опишите задачу или вопрос"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Отправить</button>
-          </form>
+    <section class="idm-new-roi" aria-labelledby="idm-new-roi-title">
+      <div class="container idm-new-roi__layout">
+        <div class="idm-new-roi__controls card">
+          <h2 class="idm-new-roi__title" id="idm-new-roi-title">Параметры прогноза</h2>
+
+          <div class="idm-new-roi__field">
+            <label class="cta-form__label" for="idm-new-roi-channel">Шаг 1: Выбор канала</label>
+            <select class="cta-form__input" id="idm-new-roi-channel">
+              <option value="target">Таргет</option>
+              <option value="context">Контекст</option>
+              <option value="seo">SEO</option>
+              <option value="smm">SMM</option>
+            </select>
+          </div>
+
+          <div class="idm-new-roi__field">
+            <label class="cta-form__label" for="idm-new-roi-budget">Шаг 2: Бюджет</label>
+            <input class="idm-new-roi__range" id="idm-new-roi-budget" type="range" min="300" max="5000" step="50" value="1000">
+            <p class="idm-new-roi__budget-value"><span id="idm-new-roi-budget-value">$1000</span></p>
+          </div>
+
+          <div class="idm-new-roi__field">
+            <label class="cta-form__label" for="idm-new-roi-goal">Шаг 3: Цель</label>
+            <select class="cta-form__input" id="idm-new-roi-goal">
+              <option value="leads">Лиды</option>
+              <option value="sales">Продажи</option>
+              <option value="awareness">Узнаваемость</option>
+            </select>
+          </div>
         </div>
-        <aside class="contacts-aside" aria-label="Контакты и мессенджеры">
-          <h2 class="contacts-aside__title">Контакты</h2>
-          <div class="contact-line">
-            <span class="icon-wrap"><i data-lucide="phone" width="22" height="22"></i></span>
-            <div>
-              <a href="tel:+996312961999">+996 (312) 961 999</a>
-            </div>
-          </div>
-          <div class="contact-line">
-            <span class="icon-wrap"><i data-lucide="mail" width="22" height="22"></i></span>
-            <div>
-              <a href="mailto:info@idm.kg">info@idm.kg</a><br>
-              <a href="mailto:partners@idm.kg">partners@idm.kg</a>
-            </div>
-          </div>
-          <div class="contact-line">
-            <span class="icon-wrap"><i data-lucide="send" width="22" height="22"></i></span>
-            <div><a href="https://t.me/YOURHANDLE" target="_blank" rel="noopener noreferrer">Telegram</a></div>
-          </div>
-          <div class="contact-line">
-            <span class="icon-wrap"><i data-lucide="message-circle" width="22" height="22"></i></span>
-            <div><a href="https://wa.me/996312961999" target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
-          </div>
-          <p class="contacts-aside__address">Бишкек, ул. Юнусалиева, 173/2, офис 1</p>
-        </aside>
-      </div>
-    </section>
 
-    <section class="container" aria-labelledby="map-title">
-      <h2 class="visually-hidden" id="map-title">Карта</h2>
-      <div class="map-placeholder">
-        <i data-lucide="map-pin" width="32" height="32" aria-hidden="true"></i>
-        <span>Карта: вставьте embed Google Maps или Яндекс <!-- TODO: реальный контент --></span>
+        <div class="idm-new-roi__results card">
+          <h2 class="idm-new-roi__title">Результат прогноза</h2>
+          <ul class="idm-new-roi__metrics">
+            <li><span>Прогнозируемый охват</span><strong id="idm-new-roi-reach">0</strong></li>
+            <li><span>Ожидаемых кликов</span><strong id="idm-new-roi-clicks">0</strong></li>
+            <li><span>Прогноз лидов</span><strong id="idm-new-roi-leads">0 - 0</strong></li>
+            <li><span>Примерный CPL</span><strong id="idm-new-roi-cpl">$0</strong></li>
+          </ul>
+          <a class="btn btn-primary" href="contacts.html">Хочу такой результат → оставить заявку</a>
+          <p class="idm-new-roi__disclaimer">Прогноз носит ориентировочный характер и зависит от ниши, посадочной страницы и аудитории.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -134,7 +105,6 @@
           <p class="site-footer__tagline">Маркетинговое агентство</p>
           <p class="site-footer__desc">Digital-стратегия, performance и креатив для бизнеса в Кыргызстане и регионе.</p>
         </div>
-
         <div class="site-footer__col">
           <h2 class="site-footer__heading">Навигация</h2>
           <ul class="site-footer__list footer-list">
@@ -146,7 +116,6 @@
             <li class="footer-list__item"><a class="footer-list__link" href="contacts.html">Контакты</a></li>
           </ul>
         </div>
-
         <div class="site-footer__col">
           <h2 class="site-footer__heading">Контакты</h2>
           <address class="site-footer__contacts">
@@ -156,7 +125,6 @@
             Бишкек, ул. Юнусалиева, 173/2, офис 1
           </address>
         </div>
-
         <div class="site-footer__col">
           <h2 class="site-footer__heading">Соцсети</h2>
           <ul class="site-footer__social" aria-label="IDM в соцсетях">
@@ -178,7 +146,6 @@
           </ul>
         </div>
       </div>
-
       <div class="site-footer__bottom site-footer__legal">
         <p class="site-footer__copy">&copy; <span id="footer-year"></span> IDM. Все права защищены.</p>
         <a href="#">Политика конфиденциальности</a>
@@ -213,5 +180,6 @@
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="js/main.js" defer></script>
+  <script src="js/roi-calculator.js" defer></script>
 </body>
 </html>

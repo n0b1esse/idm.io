@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Политика конфиденциальности IDM — обработка персональных данных.">
+  <title>Политика конфиденциальности — IDM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
+
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner container">
+      <a class="site-header__logo logo" href="index.html">
+        <img class="logo__img" src="img/idm-logo.png" alt="I DO MARKETING — digital agency" width="120" height="120" decoding="async">
+      </a>
+      <button class="burger site-header__burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню" id="burger-toggle">
+        <span class="burger__line" aria-hidden="true"></span>
+        <span class="burger__line" aria-hidden="true"></span>
+        <span class="burger__line" aria-hidden="true"></span>
+      </button>
+      <nav class="site-header__nav nav" id="site-nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link" href="services.html">Услуги</a></li>
+          <li class="nav__item"><a class="nav__link" href="portfolio.html">Портфолио</a></li>
+          <li class="nav__item"><a class="nav__link" href="reviews.html">Отзывы</a></li>
+          <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--cta" href="contacts.html" data-analytics-goal="cta_header_consultation">Получить консультацию</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main" id="main-content">
+    <section class="page-hero page-hero--40" aria-labelledby="privacy-title">
+      <div class="page-hero__inner container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="index.html">Главная</a> <span aria-hidden="true">/</span> <span>Политика конфиденциальности</span>
+        </nav>
+        <h1 class="page-hero__title" id="privacy-title">Политика конфиденциальности</h1>
+        <p class="page-hero__lead">Как IDM собирает, использует и защищает ваши данные.</p>
+      </div>
+    </section>
+
+    <section class="container" style="padding-bottom: var(--space-3xl); max-width: 48rem;">
+      <div class="card" style="padding: var(--space-xl);">
+        <h2 class="services__title" style="font-size: var(--font-size-lg); margin-bottom: var(--space-md);">1. Общие положения</h2>
+        <p class="service-card__text" style="margin-bottom: var(--space-lg);">Настоящая политика описывает порядок обработки персональных данных пользователей сайта idm.io и клиентов маркетингового агентства IDM.</p>
+
+        <h2 class="services__title" style="font-size: var(--font-size-lg); margin-bottom: var(--space-md);">2. Какие данные мы собираем</h2>
+        <p class="service-card__text" style="margin-bottom: var(--space-lg);">При заполнении форм на сайте вы можете передать имя, телефон, email, выбранную услугу и текст сообщения. Технические данные (IP, cookies, аналитика) могут собираться инструментами веб-аналитики после их подключения.</p>
+
+        <h2 class="services__title" style="font-size: var(--font-size-lg); margin-bottom: var(--space-md);">3. Цели обработки</h2>
+        <p class="service-card__text" style="margin-bottom: var(--space-lg);">Данные используются для обратной связи, подготовки коммерческого предложения, заключения и исполнения договора, а также для улучшения качества сервиса.</p>
+
+        <h2 class="services__title" style="font-size: var(--font-size-lg); margin-bottom: var(--space-md);">4. Контакты</h2>
+        <p class="service-card__text">По вопросам обработки данных: <a href="mailto:info@idm.kg">info@idm.kg</a>, тел. <a href="tel:+996312961999">+996 (312) 961 999</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
+      <div class="site-footer__bottom site-footer__legal">
+        <p class="site-footer__copy">&copy; <span id="footer-year"></span> IDM. Все права защищены.</p>
+        <a href="privacy.html" aria-current="page">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/site-config.js"></script>
+  <script src="js/lead-submit.js"></script>
+  <script src="js/analytics.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

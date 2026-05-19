@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://n0b1esse.github.io/idm.io/sitemap.xml

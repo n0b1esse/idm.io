@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="IDM — услуги: реклама в соцсетях, контекст, медийка, разработка сайтов, консалтинг. Бишкек.">
+  <title>Услуги — IDM</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://idm.io/#organization",
+        "name": "IDM",
+        "url": "https://idm.io/",
+        "email": "info@idm.kg",
+        "description": "Маркетинговое агентство IDM: таргет, контекст, медийная реклама, разработка и консалтинг."
+      },
+      {
+        "@type": "Service",
+        "@id": "https://idm.io/services.html#service",
+        "name": "Каталог маркетинговых услуг IDM",
+        "description": "Таргет в соцсетях, контекст, медийная реклама, разработка сайтов, маркетинговый консалтинг.",
+        "serviceType": "MarketingAgency",
+        "provider": { "@id": "https://idm.io/#organization" },
+        "areaServed": { "@type": "Country", "name": "Кыргызстан" }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
+
+  <header class="site-header" id="site-header">
+    <div class="site-header__inner container">
+      <a class="site-header__logo logo" href="index.html">
+        <img class="logo__img" src="img/idm-logo.png" alt="I DO MARKETING — digital agency" width="120" height="120" decoding="async">
+      </a>
+      <button class="burger site-header__burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню" id="burger-toggle">
+        <span class="burger__line" aria-hidden="true"></span>
+        <span class="burger__line" aria-hidden="true"></span>
+        <span class="burger__line" aria-hidden="true"></span>
+      </button>
+      <nav class="site-header__nav nav" id="site-nav" aria-label="Основная навигация">
+        <ul class="nav__list">
+          <li class="nav__item"><a class="nav__link" href="index.html">Главная</a></li>
+          <li class="nav__item"><a class="nav__link" href="services.html" aria-current="page">Услуги</a></li>
+          <li class="nav__item"><a class="nav__link" href="portfolio.html">Портфолио</a></li>
+          <li class="nav__item"><a class="nav__link" href="reviews.html">Отзывы</a></li>
+          <li class="nav__item"><a class="nav__link" href="contacts.html">Контакты</a></li>
+          <li class="nav__item"><a class="nav__link nav__link--cta" href="contacts.html" data-analytics-goal="cta_header_consultation">Получить консультацию</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main" id="main-content">
+    <section class="page-hero page-hero--50" aria-labelledby="page-hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <svg class="hero-waves" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true">
+          <path class="wave wave-1" d="M0,300 C360,100 720,500 1440,300" fill="none" stroke="rgba(0,229,204,0.15)" stroke-width="1.5"/>
+          <path class="wave wave-2" d="M0,350 C400,150 800,450 1440,250" fill="none" stroke="rgba(100,40,180,0.2)" stroke-width="1"/>
+          <path class="wave wave-3" d="M0,250 C300,450 900,150 1440,350" fill="none" stroke="rgba(30,80,200,0.15)" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="page-hero__inner container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+          <a href="index.html">Главная</a> <span aria-hidden="true">/</span> <span>Услуги</span>
+        </nav>
+        <h1 class="page-hero__title" id="page-hero-title">Наши <span class="accent-yellow">услуги</span></h1>
+        <p class="page-hero__lead">Полный цикл performance-маркетинга: от стратегии до отчётности. <!-- TODO: реальный контент --></p>
+      </div>
+    </section>
+
+    <section class="services-page" aria-labelledby="services-page-title" data-services-static-tabs>
+      <div class="services-page__inner container">
+        <h2 class="visually-hidden" id="services-page-title">Категории и список услуг</h2>
+
+        <div class="services-tabs-bar" role="tablist" aria-label="Категории услуг">
+          <button type="button" class="tab is-active" role="tab" data-tab="ads" aria-selected="true">Реклама</button>
+          <button type="button" class="tab" role="tab" data-tab="seo" aria-selected="false">SEO</button>
+          <button type="button" class="tab" role="tab" data-tab="smm" aria-selected="false">SMM</button>
+          <button type="button" class="tab" role="tab" data-tab="design" aria-selected="false">Дизайн</button>
+          <button type="button" class="tab" role="tab" data-tab="strategy" aria-selected="false">Стратегия</button>
+        </div>
+
+        <div class="services-tab-panel is-active" data-panel="ads" role="tabpanel" id="panel-ads">
+          <div class="services__grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-lg);">
+            <article class="card service-rich-card">
+              <i data-lucide="target" width="40" height="40" style="color: var(--color-accent);"></i>
+              <h3 class="service-card__name" style="margin-top: var(--space-md); font-family: var(--font-display);">Таргет в Meta / VK</h3>
+              <p class="service-card__text">Воронки, креативы и масштабирование кампаний под KPI.</p>
+              <ul class="service-rich-card__bullets">
+                <li>Настройка и ведение рекламных кабинетов</li>
+                <li>Сплит-тесты креативов и аудиторий</li>
+                <li>Еженедельная оптимизация бюджета</li>
+              </ul>
+              <div class="service-rich-card__actions">
+                <a class="btn btn-secondary" href="contacts.html">Подробнее</a>
+                <a class="btn btn-primary" href="contacts.html">Заказать</a>
+              </div>
+            </article>
+            <article class="card service-rich-card">
+              <i data-lucide="globe" width="40" height="40" style="color: var(--color-accent);"></i>
+              <h3 class="service-card__name" style="margin-top: var(--space-md); font-family: var(--font-display);">Контекст Google / Яндекс</h3>
+              <p class="service-card__text">Поиск и медийка с прозрачной атрибуцией.</p>
+              <ul class="service-rich-card__bullets">
+                <li>Семантика и структура аккаунтов</li>
+                <li>Ретаргетинг и look-alike</li>
+                <li>Сквозная аналитика</li>
+              </ul>
+              <div class="service-rich-card__actions">
+                <a class="btn btn-secondary" href="contacts.html">Подробнее</a>
+                <a class="btn btn-primary" href="contacts.html">Заказать</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="services-tab-panel" data-panel="seo" role="tabpanel" id="panel-seo" hidden>
+          <div class="services__grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-lg);">
+            <article class="card service-rich-card">
+              <i data-lucide="search" width="40" height="40" style="color: var(--color-accent);"></i>
+              <h3 class="service-card__name" style="margin-top: var(--space-md); font-family: var(--font-display);">SEO-продвижение</h3>
+              <p class="service-card__text">Органический трафик и рост видимости в поиске.</p>
+              <ul class="service-rich-card__bullets">
+                <li>Технический аудит и структура сайта</li>
+                <li>Семантика и контент-план</li>
+                <li>Линкбилдинг и мониторинг позиций</li>
+              </ul>
+              <div class="service-rich-card__actions">
+                <a class="btn btn-secondary" href="contacts.html">Подробнее</a>
+                <a class="btn btn-primary" href="contacts.html">Заказать</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="services-tab-panel" data-panel="smm" role="tabpanel" id="panel-smm" hidden>
+          <div class="services__grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-lg);">
+            <article class="card service-rich-card">
+              <i data-lucide="share-2" width="40" height="40" style="color: var(--color-accent);"></i>
+              <h3 class="service-card__name" style="margin-top: var(--space-md); font-family: var(--font-display);">Ведение соцсетей</h3>
+              <p class="service-card__text">Контент, комьюнити и рост вовлечённости.</p>
+              <ul class="service-rich-card__bullets">
+                <li>Контент-стратегия и календарь</li>
+                <li>Stories, Reels, посевы</li>
+                <li>Отчёты по ER и охватам</li>
+              </ul>
+              <div class="service-rich-card__actions">
+                <a class="btn btn-secondary" href="contacts.html">Подробнее</a>
+                <a class="btn btn-primary" href="contacts.html">Заказать</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="services-tab-panel" data-panel="design" role="tabpanel" id="panel-design" hidden>
+          <div class="services__grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-lg);">
+            <article class="card service-rich-card">
+              <i data-lucide="palette" width="40" height="40" style="color: var(--color-accent);"></i>
+              <h3 class="service-card__name" style="margin-top: var(--space-md); font-family: var(--font-display);">Креатив и брендинг</h3>
+              <p class="service-card__text">Визуальные системы и креативы под performance.</p>
+              <ul class="service-rich-card__bullets">
+                <li>Баннеры и лендинги</li>
+                <li>Гайдлайны и UI-киты</li>
+                <li>Motion и видео-сниппеты</li>
+              </ul>
+              <div class="service-rich-card__actions">
+                <a class="btn btn-secondary" href="contacts.html">Подробнее</a>
+                <a class="btn btn-primary" href="contacts.html">Заказать</a>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="services-tab-panel" data-panel="strategy" role="tabpanel" id="panel-strategy" hidden>
+          <div class="services__grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-lg);">
+            <article class="card service-rich-card">
+              <i data-lucide="compass" width="40" height="40" style="color: var(--color-accent);"></i>
+              <h3 class="service-card__name" style="margin-top: var(--space-md); font-family: var(--font-display);">Маркетинговая стратегия</h3>
+              <p class="service-card__text">Исследования, позиционирование и дорожная карта роста.</p>
+              <ul class="service-rich-card__bullets">
+                <li>Аудит рынка и конкурентов</li>
+                <li>Юнит-экономика и CAC/LTV</li>
+                <li>Roadmap на квартал</li>
+              </ul>
+              <div class="service-rich-card__actions">
+                <a class="btn btn-secondary" href="contacts.html">Подробнее</a>
+                <a class="btn btn-primary" href="contacts.html">Заказать</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="idm-new-cooperation" aria-labelledby="idm-new-cooperation-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="idm-new-cooperation__title" id="idm-new-cooperation-title">Форматы сотрудничества</h2>
+        </div>
+        <div class="idm-new-cooperation__grid">
+          <article class="idm-new-cooperation__card reveal reveal-delay-1">
+            <p class="idm-new-cooperation__label">СТАРТ</p>
+            <p class="idm-new-cooperation__lead">Для бизнеса, который только начинает с digital</p>
+            <ul class="idm-new-cooperation__list">
+              <li>1 рекламный канал (таргет или контекст)</li>
+              <li>Базовая аналитика и еженедельный отчёт</li>
+              <li>Бюджет от 300$/мес</li>
+            </ul>
+            <a class="idm-new-cooperation__link" href="contacts.html">Обсудить детали →</a>
+          </article>
+          <article class="idm-new-cooperation__card idm-new-cooperation__card--featured reveal reveal-delay-2">
+            <p class="idm-new-cooperation__label">РОСТ</p>
+            <p class="idm-new-cooperation__lead">Для бизнеса, который хочет масштабироваться</p>
+            <ul class="idm-new-cooperation__list">
+              <li>2-3 канала в связке (таргет + SEO или таргет + SMM)</li>
+              <li>Ежемесячная стратегическая сессия</li>
+              <li>Сквозная аналитика и атрибуция</li>
+            </ul>
+            <a class="idm-new-cooperation__link" href="contacts.html">Обсудить детали →</a>
+          </article>
+          <article class="idm-new-cooperation__card reveal reveal-delay-3">
+            <p class="idm-new-cooperation__label">КОМПЛЕКС</p>
+            <p class="idm-new-cooperation__lead">Для брендов с амбициозными целями</p>
+            <ul class="idm-new-cooperation__list">
+              <li>Полное ведение digital-присутствия</li>
+              <li>Выделенный менеджер проекта</li>
+              <li>Performance + Бренд в одной стратегии</li>
+              <li>Ежеквартальный аудит и roadmap</li>
+            </ul>
+            <a class="idm-new-cooperation__link" href="contacts.html">Обсудить детали →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="timeline-title">
+      <h2 class="visually-hidden" id="timeline-title">Процесс работы</h2>
+      <div class="timeline-process">
+        <div class="timeline-process__item card">
+          <div class="timeline-process__num">1</div>
+          <h3 class="timeline-process__title">Заявка и брифинг</h3>
+          <p class="service-card__text">Собираем цели, ограничения и метрики успеха.</p>
+        </div>
+        <div class="timeline-process__item card">
+          <div class="timeline-process__num">2</div>
+          <h3 class="timeline-process__title">Анализ и стратегия</h3>
+          <p class="service-card__text">Исследование аудитории и медиаплан.</p>
+        </div>
+        <div class="timeline-process__item card">
+          <div class="timeline-process__num">3</div>
+          <h3 class="timeline-process__title">Запуск</h3>
+          <p class="service-card__text">Креативы, посадочные и настройка рекламы.</p>
+        </div>
+        <div class="timeline-process__item card">
+          <div class="timeline-process__num">4</div>
+          <h3 class="timeline-process__title">Отчёт и оптимизация</h3>
+          <p class="service-card__text">Прозрачные отчёты и гипотезы на следующий спринт.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="idm-new-faq" aria-labelledby="idm-new-faq-title-services" data-idm-new-faq>
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="idm-new-faq__title" id="idm-new-faq-title-services">Частые вопросы</h2>
+          <p class="idm-new-faq__subtitle">Всё, что обычно спрашивают до первого звонка</p>
+        </div>
+        <div class="idm-new-faq__list">
+          <article class="idm-new-faq__item reveal">
+            <button class="idm-new-faq__question" type="button" aria-expanded="true">
+              <span>Сколько стоят ваши услуги?</span>
+              <span class="idm-new-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="idm-new-faq__answer">
+              <p>Стоимость зависит от каналов, объёма и целей. Минимальный бюджет на ведение рекламы — от 300$/мес. Стратегия и аудит рассчитываются отдельно. Оставьте заявку — подберём формат под ваш бюджет.</p>
+            </div>
+          </article>
+          <article class="idm-new-faq__item reveal">
+            <button class="idm-new-faq__question" type="button" aria-expanded="false">
+              <span>Как быстро будет результат?</span>
+              <span class="idm-new-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="idm-new-faq__answer">
+              <p>Первые данные по рекламным кампаниям — через 2 недели после запуска. SEO даёт рост через 2-3 месяца. Для e-commerce таргет может окупиться уже в первый месяц — как у Тойбосс (+95% заявок за 30 дней).</p>
+            </div>
+          </article>
+          <article class="idm-new-faq__item reveal">
+            <button class="idm-new-faq__question" type="button" aria-expanded="false">
+              <span>Работаете ли вы с малым бизнесом?</span>
+              <span class="idm-new-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="idm-new-faq__answer">
+              <p>Да. У нас есть форматы как для стартапов с бюджетом от 300$, так и для крупных брендов уровня О! и Демир Банк. Подход всегда адаптируется под масштаб задачи.</p>
+            </div>
+          </article>
+          <article class="idm-new-faq__item reveal">
+            <button class="idm-new-faq__question" type="button" aria-expanded="false">
+              <span>Что нужно предоставить для старта?</span>
+              <span class="idm-new-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="idm-new-faq__answer">
+              <p>Достаточно заполнить бриф на 15 минут: цели, аудитория, бюджет, конкуренты. Остальное — наша работа. Брифинг проходит онлайн или в офисе.</p>
+            </div>
+          </article>
+          <article class="idm-new-faq__item reveal">
+            <button class="idm-new-faq__question" type="button" aria-expanded="false">
+              <span>Как вы отчитываетесь о результатах?</span>
+              <span class="idm-new-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="idm-new-faq__answer">
+              <p>Еженедельные сводки + ежемесячный детальный отчёт с метриками, расходами и выводами. Доступ к рекламным кабинетам остаётся у клиента всегда.</p>
+            </div>
+          </article>
+          <article class="idm-new-faq__item reveal">
+            <button class="idm-new-faq__question" type="button" aria-expanded="false">
+              <span>Вы работаете только в Кыргызстане?</span>
+              <span class="idm-new-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="idm-new-faq__answer">
+              <p>Основная экспертиза — Кыргызстан и Центральная Азия. Также работаем с клиентами из России и СНГ по digital-каналам без географических ограничений.</p>
+            </div>
+          </article>
+          <article class="idm-new-faq__item reveal">
+            <button class="idm-new-faq__question" type="button" aria-expanded="false">
+              <span>Чем вы отличаетесь от других агентств?</span>
+              <span class="idm-new-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="idm-new-faq__answer">
+              <p>Мы — сертифицированные партнёры Google, Meta и официальные представители VK/OK/Mail.ru. Основатель IDM возглавляет Ассоциацию электронной коммерции КР. Это даёт доступ к инсайтам рынка, которых нет у других агентств в регионе.</p>
+            </div>
+          </article>
+          <article class="idm-new-faq__item reveal">
+            <button class="idm-new-faq__question" type="button" aria-expanded="false">
+              <span>Можно ли начать с одной услуги?</span>
+              <span class="idm-new-faq__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="idm-new-faq__answer">
+              <p>Конечно. Многие клиенты начинают с таргета или SEO-аудита, а потом расширяют сотрудничество. Мы не навязываем пакеты — только то, что даёт результат.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta cta-block-gradient" aria-labelledby="audit-title">
+      <div class="cta__inner container">
+        <div class="cta__content" style="text-align: center; max-width: 36rem; margin-inline: auto;">
+          <h2 class="cta__title" id="audit-title">Бесплатный аудит за 30 минут</h2>
+          <p class="cta__text">Оставьте контакт — покажем точки роста в воронке.</p>
+        </div>
+        <form class="cta-form" id="audit-form" style="max-width: 28rem; margin-inline: auto;" action="#" method="post" novalidate data-lead-form>
+          <div class="cta-form__field">
+            <label class="cta-form__label" for="audit-name">Имя</label>
+            <input class="cta-form__input" id="audit-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="cta-form__field">
+            <label class="cta-form__label" for="audit-phone">Телефон</label>
+            <input class="cta-form__input" id="audit-phone" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+          <p class="cta-form__status" id="audit-form-status" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Записаться на консультацию</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="container" aria-labelledby="preview-cases-title" style="padding-top: 0;">
+      <div class="section-head" style="margin-bottom: var(--space-xl); text-align: center;">
+        <h2 class="services__title" id="preview-cases-title">Смотрите, как мы реализуем это на практике</h2>
+        <p class="section__lead" style="margin-top: var(--space-sm);">Недавние проекты для брендов из телекома, ритейла и авто.</p>
+      </div>
+      <div class="cases__grid" style="grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));">
+        <article class="case-card card">
+          <a class="case-card__link" href="portfolio.html">
+            <div class="case-card__media case-card__media--ratio">
+              <div class="case-card__cover case-card__cover--empty"></div>
+            </div>
+            <span class="case-card__badge">Таргет</span>
+            <h3 class="case-card__title">Нур Телеком (О!)</h3>
+            <p class="case-card__result">📈 +320% трафика за 3 мес.</p>
+          </a>
+        </article>
+        <article class="case-card card">
+          <a class="case-card__link" href="portfolio.html">
+            <div class="case-card__media case-card__media--ratio">
+              <div class="case-card__cover case-card__cover--empty"></div>
+            </div>
+            <span class="case-card__badge">SEO</span>
+            <h3 class="case-card__title">Компаньон Банк</h3>
+            <p class="case-card__result">📈 органика +180%</p>
+          </a>
+        </article>
+        <article class="case-card card">
+          <a class="case-card__link" href="portfolio.html">
+            <div class="case-card__media case-card__media--ratio">
+              <div class="case-card__cover case-card__cover--empty"></div>
+            </div>
+            <span class="case-card__badge">SMM</span>
+            <h3 class="case-card__title">Тойбосс (Адал Азык)</h3>
+            <p class="case-card__result">📈 +95% заявок</p>
+          </a>
+        </article>
+      </div>
+      <p style="text-align: center; margin-top: var(--space-xl);">
+        <a class="btn btn-secondary" href="portfolio.html">Смотрите, как мы реализуем это на практике →</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner container">
+      <div class="site-footer__grid site-footer__grid--4">
+        <div class="site-footer__brand">
+          <a class="site-footer__logo logo logo--footer" href="index.html" aria-label="I DO MARKETING — digital agency, на главную">
+            <img class="logo__img" src="img/idm-logo.png" alt="" width="120" height="120" decoding="async" loading="lazy">
+          </a>
+          <p class="site-footer__tagline">Маркетинговое агентство</p>
+          <p class="site-footer__desc">Digital-стратегия, performance и креатив для бизнеса в Кыргызстане и регионе.</p>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__heading">Навигация</h2>
+          <ul class="site-footer__list footer-list">
+            <li class="footer-list__item"><a class="footer-list__link" href="index.html">Главная</a></li>
+            <li class="footer-list__item"><a class="footer-list__link" href="services.html">Услуги</a></li>
+            <li class="footer-list__item"><a class="footer-list__link" href="portfolio.html">Портфолио</a></li>
+            <li class="footer-list__item"><a class="footer-list__link" href="reviews.html">Отзывы</a></li>
+            <li class="footer-list__item"><a class="footer-list__link" href="contacts.html">Контакты</a></li>
+          </ul>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__heading">Контакты</h2>
+          <address class="site-footer__contacts">
+            <a class="site-footer__link" href="tel:+996312961999">+996 (312) 961 999</a><br>
+            <a class="site-footer__link" href="mailto:info@idm.kg">info@idm.kg</a><br>
+            <a class="site-footer__link" href="mailto:partners@idm.kg">partners@idm.kg</a><br>
+            Бишкек, ул. Юнусалиева, 173/2, офис 1
+          </address>
+        </div>
+        <div class="site-footer__col">
+          <h2 class="site-footer__heading">Соцсети</h2>
+          <ul class="site-footer__social" aria-label="IDM в соцсетях">
+            <li>
+              <a class="site-footer__social-link" href="https://www.instagram.com/idm.kg/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" stroke="currentColor" stroke-width="1.75"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="1.75"/><path d="M17.5 6.5h.01" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="site-footer__social-link" href="https://wa.me/996312961999" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.123 1.036 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="site-footer__social-link" href="https://www.linkedin.com/company/idm-kyrgyzstan" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.07 2.07 0 11-.001-4.139 2.07 2.07 0 01.001 4.139zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom site-footer__legal">
+        <p class="site-footer__copy">&copy; <span id="footer-year"></span> IDM. Все права защищены.</p>
+        <a href="privacy.html">Политика конфиденциальности</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="idm-new-chat-widget" data-idm-new-chat>
+    <div class="idm-new-chat-widget__menu" aria-label="Выберите мессенджер">
+      <a class="idm-new-chat-widget__link idm-new-chat-widget__link--wa" href="https://wa.me/996312961999" target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M20.52 3.48A11.82 11.82 0 0 0 12.05 0C5.49 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.31-1.65a11.86 11.86 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.23-6.14-3.43-8.42ZM12.06 21.79h-.01a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.74.98.99-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.43-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.89a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.43 9.88-9.88 9.88Zm5.42-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.09-.47-.14-.67.15-.2.3-.77.97-.94 1.17-.17.19-.35.22-.64.07-.3-.14-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.29-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.49.1-.2.05-.38-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.19 0-.52.08-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.07.14.2 2.09 3.2 5.07 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.88.12.57-.08 1.75-.72 2.01-1.41.24-.7.24-1.29.17-1.41-.08-.13-.27-.2-.57-.35Z"/>
+        </svg>
+        <span>WhatsApp</span>
+      </a>
+      <a class="idm-new-chat-widget__link idm-new-chat-widget__link--tg" href="https://t.me/idm_kg" target="_blank" rel="noopener noreferrer" aria-label="Написать в Telegram">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M9.78 15.43 9.4 20.8c.54 0 .78-.23 1.06-.5l2.53-2.42 5.24 3.84c.96.53 1.64.25 1.9-.89l3.44-16.13c.38-1.56-.56-2.17-1.5-1.81L1.86 10.62c-1.5.59-1.48 1.43-.25 1.81l5.16 1.61L18.76 6.5c.56-.37 1.07-.17.65.2"/>
+        </svg>
+        <span>Telegram</span>
+      </a>
+    </div>
+    <button class="idm-new-chat-widget__toggle" type="button" aria-expanded="false" aria-label="Открыть быстрые мессенджеры">
+      <svg class="idm-new-chat-widget__toggle-icon idm-new-chat-widget__toggle-icon--open" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M12 2a10 10 0 0 0-8.66 15l-1.3 4.74a1 1 0 0 0 1.22 1.23L8 21.66A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-3.61 15.14 1 1 0 0 0-.75-.07L4.8 19.8l.72-2.83a1 1 0 0 0-.06-.74A8 8 0 0 1 12 4Z"/>
+      </svg>
+      <svg class="idm-new-chat-widget__toggle-icon idm-new-chat-widget__toggle-icon--close" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="currentColor" d="M6.22 4.81 4.8 6.22 10.59 12l-5.8 5.78 1.42 1.41L12 13.41l5.78 5.78 1.41-1.41L13.41 12l5.78-5.78-1.41-1.41L12 10.59 6.22 4.8Z"/>
+      </svg>
+    </button>
+  </div>
+
+  <div class="exit-popup" id="exit-popup" role="dialog" aria-modal="true" aria-labelledby="exit-popup-title">
+    <div class="exit-popup__card">
+      <button type="button" class="exit-popup__close" id="exit-popup-close" aria-label="Закрыть">×</button>
+      <h3 class="exit-popup__title" id="exit-popup-title">Бесплатный аудит за 30 минут</h3>
+      <p class="cta__text" style="margin-bottom: var(--space-lg); color: var(--color-muted); font-size: var(--font-size-sm);">Оставьте контакт — подберём слот и вернёмся с первыми инсайтами.</p>
+      <form class="cta-form exit-popup__form" id="exit-popup-form" action="#" method="post" novalidate>
+        <div class="cta-form__field">
+          <label class="cta-form__label" for="exit-name">Имя</label>
+          <input class="cta-form__input" id="exit-name" name="exit-name" type="text" autocomplete="name">
+        </div>
+        <div class="cta-form__field">
+          <label class="cta-form__label" for="exit-phone">Телефон</label>
+          <input class="cta-form__input" id="exit-phone" name="exit-phone" type="tel" autocomplete="tel">
+        </div>
+        <button type="submit" class="btn btn-primary" id="exit-popup-close-submit">Отправить</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/site-config.js"></script>
+  <script src="js/lead-submit.js"></script>
+  <script src="js/analytics.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/services-static-tabs.js" defer></script>
+</body>
+</html>

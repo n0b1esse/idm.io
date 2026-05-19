@@ -1,0 +1,30 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: idm-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: idm
+      POSTGRES_PASSWORD: idm
+      POSTGRES_DB: idm
+    ports:
+      - "5432:5432"
+    volumes:
+      - idm_pg_data:/var/lib/postgresql/data
+      - ./database/schema/001_initial.sql:/docker-entrypoint-initdb.d/001_initial.sql:ro
+
+  backend:
+    build: ./backend
+    container_name: idm-backend
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      PORT: "3000"
+      DATABASE_URL: postgresql://idm:idm@db:5432/idm
+      CORS_ORIGIN: http://localhost:8080,http://127.0.0.1:8080
+    ports:
+      - "3000:3000"
+
+volumes:
+  idm_pg_data:

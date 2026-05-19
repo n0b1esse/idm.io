@@ -2,7 +2,7 @@
 
 ## Подключение счётчиков
 
-Откройте `js/site-config.js` и укажите ID:
+Откройте `frontend/js/site-config.js` и укажите ID:
 
 ```javascript
 yandexMetrikaId: "12345678",
@@ -10,7 +10,7 @@ ga4MeasurementId: "G-XXXXXXXXXX",
 hotjarId: "1234567", // опционально
 ```
 
-Скрипт `js/analytics.js` подключается на всех страницах. Пока ID пустые — внешние скрипты не загружаются, цели копятся только в консоли при отладке (через событие `idm:lead-success`).
+Скрипт `frontend/js/analytics.js` подключается на всех страницах. Пока ID пустые — внешние скрипты не загружаются, цели копятся только в консоли при отладке (через событие `idm:lead-success`).
 
 ## Цели в Метрике / GA4
 
@@ -56,7 +56,7 @@ https://n0b1esse.github.io/idm.io/contacts.html?utm_source=google&utm_medium=cpc
 
 ## Webhook заявок (Telegram / Make)
 
-В `js/site-config.js` задайте `leadWebhookUrl`. При успешной валидации формы `main.js` отправит POST с JSON:
+В `frontend/js/site-config.js` задайте `leadWebhookUrl` (например `https://api.example.com/api/v1/leads` или локально `http://localhost:3000/api/v1/leads`). При успешной валидации формы `main.js` отправит POST с JSON:
 
 ```json
 {

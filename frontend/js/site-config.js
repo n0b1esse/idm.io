@@ -12,7 +12,8 @@ window.IDM_SITE_CONFIG = {
   /** Hotjar: hjid (опционально). */
   hotjarId: "",
   /**
-   * URL webhook для заявок (Telegram Bot API, Make, n8n, свой backend).
+   * URL для заявок: backend API, Make, n8n, Telegram webhook.
+   * Локально: "http://localhost:3000/api/v1/leads"
    * POST JSON: { form, name, phone, email, contact, service, message, page }
    */
   leadWebhookUrl: "",

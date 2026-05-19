@@ -1,0 +1,4 @@
+-- Применение (из корня репозитория):
+--   psql $DATABASE_URL -f database/schema/001_initial.sql
+--
+-- Файл в migrations/ — маркер версии; актуальная схема в database/schema/001_initial.sql

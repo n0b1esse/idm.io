@@ -40,7 +40,9 @@ leadWebhookUrl: "http://localhost:3000/api/v1/leads",
 
 ## GitHub Pages
 
-**Settings → Pages** → Branch `main` → папка **`/frontend`**.
+Деплой через GitHub Actions (`.github/workflows/pages.yml`) при push в `main`.
+
+**Settings → Pages → Build and deployment → Source:** `GitHub Actions`.
 
 Сайт: `https://n0b1esse.github.io/idm.io/`
 
